@@ -3,7 +3,7 @@ require "mechanize"
 class Crawl
   def initialize
     @agent = Mechanize.new()
-    agent.history_added = Proc.new {sleep 10}
+    @agent.history_added = Proc.new {sleep 10}
     @files = Dir["cache/*.html"]
   end
 
