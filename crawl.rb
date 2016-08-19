@@ -11,4 +11,5 @@ page = agent.get(start_url)
 
 last = page.css("div.PageNav").first["data-last"].to_i
 
-#messages = page.css("ol")
+messages = page.css("ol.messageList li.message")
+puts messages.size
