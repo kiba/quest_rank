@@ -1,5 +1,6 @@
 require "mechanize"
 
+files = Dir["cache/*.html"]
 
 agent = Mechanize.new()
 
