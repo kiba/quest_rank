@@ -14,3 +14,6 @@ class Crawl
     messages = page.css("ol.messageList li.message")
   end
 end
+
+crawl = Crawl.new()
+crawl.calculate_size()
