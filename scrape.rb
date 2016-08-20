@@ -3,4 +3,4 @@ require "nokogiri"
 
 files = Dir["cache/*.html"]
 
-content = File.read(files[0])
+content = Nokogiri::HTML(File.open(files[0]))
