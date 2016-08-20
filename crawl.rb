@@ -6,7 +6,7 @@ class Crawl
     @agent.history_added = Proc.new {sleep 10}
     @files = Dir["cache/*.html"]
   end
-  def download
+  def pages_to_download
     url = "https://forums.sufficientvelocity.com/threads/marked-for-death-a-rational-naruto-quest.24481/"
     start = @files.size
     if @files.size == 0
@@ -21,5 +21,4 @@ class Crawl
 end
 
 crawl = Crawl.new()
-crawl.download()
 #    messages = page.css("ol.messageList li.message")
