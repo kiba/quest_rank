@@ -10,8 +10,6 @@ class Crawl
   def target_range
     start = @files.size + 1
     page = @agent.get(URL + "page-#{start}")
-    messages = page.css("ol.messageList li.message")
-    return [] unless messages.size == 25
     last = page.css("div.PageNav").first["data-last"].to_i - 1
     (start..last).to_a.each
   end
