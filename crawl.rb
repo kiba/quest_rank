@@ -6,17 +6,12 @@ class Crawl
     @agent.history_added = Proc.new {sleep 10}
     @files = Dir["cache/*.html"]
   end
-  def pages_to_download
+  def download_range
     url = "https://forums.sufficientvelocity.com/threads/marked-for-death-a-rational-naruto-quest.24481/"
-    start = @files.size
-    if @files.size == 0
-      start = 1
-    end
+    start = @files.size + 1
     page = @agent.get(url + "page-#{start}")
     last = page.css("div.PageNav").first["data-last"].to_i - 1
-    (start..last).to_a.each do |n|
-      puts n
-    end
+    (start..last).to_a.each
   end
 end
 
