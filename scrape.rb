@@ -6,21 +6,21 @@ files = Dir["cache/*.html"]
 
 posts = []
 
-content = Nokogiri::HTML(File.open(files[0]))
+files.each do |f|
+  content = Nokogiri::HTML(File.open(f))
 
-messages = content.search("li.message").each do |m|
-  hash = {
-    {
+  messages = content.search("li.message").each do |m|
+    hash = {
       :id => m["id"],
       :author => m["data-author"],
       :date => m.search("div.messageMeta span.DateTime").children.text
     }
-  }
-  posts.push(hash)
+    posts.push(hash)
+  end
 end
 
 results = JSON.pretty_generate(posts)
 
-File.open("test.json","w") do |f|
+File.open("site/data.json","w") do |f|
   f.write(posts)
 end
