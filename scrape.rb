@@ -21,6 +21,6 @@ end
 
 results = JSON.pretty_generate(posts)
 
-File.open("site/data.json","w") do |f|
+File.open("doc/data.json","w") do |f|
   f.write(posts)
 end
