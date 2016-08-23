@@ -7,7 +7,6 @@ data = JSON.parse(file)
 dates = {}
 
 
-
 data.each do |d|
   d = JSON.parse(d)
   key = d["date"]
@@ -17,4 +16,9 @@ data.each do |d|
     dates.merge!({key => 1})
   end
 end
-puts dates
+
+content = dates.to_json
+
+File.open("doc/post-frequency.json","w") do |f|
+  f.write(content)
+end
