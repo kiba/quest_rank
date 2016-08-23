@@ -15,7 +15,7 @@ files.each do |f|
       :author => m["data-author"],
       :date => m.search("div.messageMeta span.DateTime").children.text
     }
-    posts.push(hash)
+    posts.push(hash.to_json)
   end
 end
 
