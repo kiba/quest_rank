@@ -6,12 +6,15 @@ data = JSON.parse(file)
 
 dates = {}
 
-element = JSON.parse(data[0])
 
-if dates.key?(element["date"]) == true
-  dates[element["date"]] += 1
-else
-  dates.merge!({element["date"] => 1})
+
+data.each do |d|
+  d = JSON.parse(d)
+  key = d["date"]
+  if dates.key?(key) == true
+    dates[key] += 1
+  else
+    dates.merge!({key => 1})
+  end
 end
-
 puts dates
