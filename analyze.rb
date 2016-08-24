@@ -10,6 +10,9 @@ dates = {}
 data.each do |d|
   d = JSON.parse(d)
   key = d["date"]
+  if key == ""
+    raise "ERROR! Key is blank."
+  end
   if dates.key?(key) == true
     dates[key] += 1
   else
