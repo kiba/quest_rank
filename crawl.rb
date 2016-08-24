@@ -31,3 +31,16 @@ end
 
 crawl = Crawl.new()
 crawl.auto_download()
+
+options = {}
+OptionParser.new do |opts|
+  opts.banner = "Usage: changes.rb [options]"
+  opts.on("-fFILENAME", "--filename=FILENAME", "Choose specific project to summarize") do |f|
+    options[:filename] = f
+  end
+
+  opts.on("-h", "--help", "Print all commands.") do
+    puts opts
+    exit
+  end
+end.parse!
