@@ -8,7 +8,10 @@ posts = []
 
 files.each do |f|
   content = Nokogiri::HTML(File.open(f))
-
+  li = content.search("li.message")
+  if li.size != 25
+    puts "Not standard number of replies at... " + f
+  end
   messages = content.search("li.message").each do |m|
     hash = {
       :id => m["id"],
