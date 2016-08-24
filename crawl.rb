@@ -19,9 +19,7 @@ class Crawl
   def auto_download
     range = target_range()
     range.each do |n|
-      page = @agent.get(URL + "page-#{n}")
-      puts "page #{n} saved."
-      page.save("cache/#{n}.html")
+      download(n)
     end
   end
   def download n
