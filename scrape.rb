@@ -6,6 +6,17 @@ files = Dir["cache/*.html"]
 
 posts = []
 
+def find_date m
+  date = m.search("div.messageMeta span.DateTime").children.text
+  if date == ""
+    date = m.search("a.datePermalink abbr.DateTime").first["data-datestring"]
+  end
+  if date == ""
+    byebug
+  end
+  return date
+end
+
 files.each do |f|
   content = Nokogiri::HTML(File.open(f))
   replies = content.search("li.message")
@@ -15,10 +26,7 @@ files.each do |f|
   replies.each do |m|
     id = m["id"]
     author = m["data-author"]
-    date = m.search("div.messageMeta span.DateTime").children.text
-    if date == ""
-      date = m.search("a.datePermalink abbr.DateTime").first["data-datestring"]
-    end
+    date = find_date(m)
     hash = {
       :id => id,
       :author => author,
