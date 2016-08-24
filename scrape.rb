@@ -39,5 +39,5 @@ end
 results = JSON.pretty_generate(posts)
 
 File.open("doc/data.json","w") do |f|
-  f.write(posts)
+  f.puts(posts)
 end
