@@ -13,7 +13,7 @@ class Crawl
     last = page.css("div.PageNav").first["data-last"].to_i - 1
     (start..last).to_a.each
   end
-  def download
+  def auto_download
     range = target_range()
     range.each do |n|
       page = @agent.get(URL + "page-#{n}")
@@ -24,4 +24,4 @@ class Crawl
 end
 
 crawl = Crawl.new()
-crawl.download()
+crawl.auto_download()
