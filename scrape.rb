@@ -13,13 +13,15 @@ files.each do |f|
     puts "Not standard number of replies at... " + f + " with " + replies.size.to_s
   end
   replies.each do |m|
+    id = m["id"]
+    author = m["data-author"]
     date = m.search("div.messageMeta span.DateTime").children.text
     if date == ""
-      puts "An empty date in " + f
+      date = m.search("a.datePermalink abbr.DateTime").first["data-datestring"]
     end
     hash = {
-      :id => m["id"],
-      :author => m["data-author"],
+      :id => id,
+      :author => author,
       :date => date
     }
     posts.push(hash.to_json)
