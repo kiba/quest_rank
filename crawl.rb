@@ -8,9 +8,12 @@ class Crawl
     @files = Dir["cache/*.html"]
   end
   def target_range
-    start = @files.size + 1
+    start = @files.size
+    if start == 0
+      start = 1
+    end
     page = @agent.get(URL + "page-#{start}")
-    last = page.css("div.PageNav").first["data-last"].to_i - 1
+    last = page.css("div.PageNav").first["data-last"].to_i
     (start..last).to_a.each
   end
   def auto_download
