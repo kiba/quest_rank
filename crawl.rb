@@ -33,8 +33,8 @@ end
 options = {}
 OptionParser.new do |opts|
   opts.banner = "Usage: changes.rb [options]"
-  opts.on("-fFILENAME", "--filename=FILENAME", "Choose specificaly which page to download") do |f|
-    options[:filename] = f
+  opts.on("-pPAGE", "--page=PAGE", "Choose specificaly which page to download") do |p|
+    options[:page] = p
   end
 
   opts.on("-h", "--help", "Print all commands.") do
@@ -44,6 +44,6 @@ OptionParser.new do |opts|
 end.parse!
 
 crawl = Crawl.new()
-if options[:filename] == nil
+if options[:page] == nil
   crawl.auto_download()
 end
