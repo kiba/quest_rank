@@ -30,9 +30,6 @@ class Crawl
   end
 end
 
-crawl = Crawl.new()
-crawl.auto_download()
-
 options = {}
 OptionParser.new do |opts|
   opts.banner = "Usage: changes.rb [options]"
@@ -45,3 +42,8 @@ OptionParser.new do |opts|
     exit
   end
 end.parse!
+
+crawl = Crawl.new()
+if options[:filename] == nil
+  crawl.auto_download()
+end
