@@ -1,6 +1,6 @@
 require "json"
 
-file = File.read("doc/data.json")
+file = File.read("docs/data.json")
 
 data = JSON.parse(file)
 
@@ -22,6 +22,6 @@ end
 
 content = dates.to_json
 
-File.open("doc/post-frequency.json","w") do |f|
+File.open("docs/post-frequency.json","w") do |f|
   f.write(content)
 end

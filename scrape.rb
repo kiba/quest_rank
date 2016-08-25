@@ -41,6 +41,6 @@ end
 puts "There are " + count.to_s + "posts."
 results = JSON.pretty_generate(posts)
 
-File.open("doc/data.json","w") do |f|
+File.open("docs/data.json","w") do |f|
   f.puts(posts)
 end
