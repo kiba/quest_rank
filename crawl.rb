@@ -33,7 +33,7 @@ end
 options = {}
 OptionParser.new do |opts|
   opts.banner = "Usage: changes.rb [options]"
-  opts.on("-fFILENAME", "--filename=FILENAME", "Choose specific project to summarize") do |f|
+  opts.on("-fFILENAME", "--filename=FILENAME", "Choose specificaly which page to download") do |f|
     options[:filename] = f
   end
 
