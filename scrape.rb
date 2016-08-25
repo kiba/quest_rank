@@ -17,9 +17,11 @@ def find_date m
   return date
 end
 
+count = 0
 files.each do |f|
   content = Nokogiri::HTML(File.open(f))
   replies = content.search("li.message")
+  count += replies.size
   if replies.size != 25
     puts "Not standard number of replies at... " + f + " with " + replies.size.to_s
   end
@@ -36,6 +38,7 @@ files.each do |f|
   end
 end
 
+puts "There are " + count.to_s + "posts."
 results = JSON.pretty_generate(posts)
 
 File.open("doc/data.json","w") do |f|
