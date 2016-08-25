@@ -46,4 +46,6 @@ end.parse!
 crawl = Crawl.new()
 if options[:page] == nil
   crawl.auto_download()
+else
+  crawl.download(options[:page])
 end
