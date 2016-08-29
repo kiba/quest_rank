@@ -24,15 +24,17 @@ end
 dates.to_a
 
 biggest = {:date => nil, :count => 0}
+records = []
 
 dates.each do |d|
   if d[1] > biggest[:count]
     biggest[:date] = d[0]
     biggest[:count] = d[1]
+    records.push({:date => d[0], :count => d[1]})
   end
 end
 
-puts biggest
+puts records
 
 content = dates.to_json
 
