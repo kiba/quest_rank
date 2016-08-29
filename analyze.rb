@@ -39,6 +39,6 @@ puts records
 content = dates.to_json
 
 
-File.open("docs/post-frequency.json","w") do |f|
+File.open("docs/date-posts-frequency.json","w") do |f|
   f.write(content)
 end
