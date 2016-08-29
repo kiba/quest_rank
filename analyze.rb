@@ -21,7 +21,20 @@ data.each do |d|
   end
 end
 
-content = dates.to_a.to_json
+dates.to_a
+
+biggest = {:date => nil, :count => 0}
+
+dates.each do |d|
+  if d[1] > biggest[:count]
+    biggest[:date] = d[0]
+    biggest[:count] = d[1]
+  end
+end
+
+puts biggest
+
+content = dates.to_json
 
 
 File.open("docs/post-frequency.json","w") do |f|
