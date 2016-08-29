@@ -1,4 +1,5 @@
 require "json"
+require "byebug"
 
 file = File.read("docs/data.json")
 
@@ -20,7 +21,8 @@ data.each do |d|
   end
 end
 
-content = dates.to_json
+content = dates.to_a.to_json
+
 
 File.open("docs/post-frequency.json","w") do |f|
   f.write(content)
