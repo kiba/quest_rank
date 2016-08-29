@@ -38,7 +38,7 @@ files.each do |f|
   end
 end
 
-puts "There are " + count.to_s + "posts."
+puts "There are " + count.to_s + " posts."
 results = JSON.pretty_generate(posts)
 
 File.open("docs/data.json","w") do |f|
