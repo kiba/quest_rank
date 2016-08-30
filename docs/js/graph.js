@@ -5,8 +5,8 @@ var x_axis = d3.scaleTime().range([0,width]);
 var y_axis = d3.scaleTime().range([height,0]);
 
 var line = d3.line()
-.x(function(d) { return x(d[0]);})
-.y(function(d) { return y(d[1]);});
+.x(function(d) { return x(d.date); })
+.y(function(d) { return y(d.count); });
 
 var svg = d3.select("body").append("svg")
 .attr("width",width + 100)
@@ -19,4 +19,5 @@ d3.json("date-posts-frequency.json", function (error,data) {
   {
     console.log(data[data.length - 31 + i]);
   }
+  data.forEach (d)
 });
