@@ -15,9 +15,16 @@ var svg = d3.select("body").append("svg")
 
 d3.json("date-posts-frequency.json", function (error,data) {
   if (error) { alert(error);}
+
+  var last_thirty = [];
+
   for(i=0;i < 30;i++)
   {
-    console.log(data[data.length - 31 + i]);
+    var d = data[data.length - 30 + i];
+    last_thirty.push({date: d[0],count: d[1]});
   }
-  data.forEach (d)
+  last_thirty.forEach(function(obj){
+    console.log(obj);
+  });
+
 });
