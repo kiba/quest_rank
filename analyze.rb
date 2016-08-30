@@ -21,12 +21,10 @@ data.each do |d|
   end
 end
 
-dates.to_a
-
 biggest = {:date => nil, :count => 0}
 records = []
 
-dates.each do |d|
+dates.to_a.each do |d|
   if d[1] > biggest[:count]
     biggest[:date] = d[0]
     biggest[:count] = d[1]
@@ -36,8 +34,7 @@ end
 
 puts records
 
-content = dates.to_json
-
+content = dates.to_a.to_json
 
 File.open("docs/date-posts-frequency.json","w") do |f|
   f.write(content)
