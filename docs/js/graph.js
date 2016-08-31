@@ -23,6 +23,9 @@ d3.json("date-posts-frequency.json", function (error,data) {
     var d = data[data.length - 30 + i];
     last_thirty.push({date: d[0],count: d[1]});
   }
+
+  x_axis.domain(d3.extent(last_thirty,function(d){return d.date; }));
+
   last_thirty.forEach(function(obj){
     console.log(obj);
   });
