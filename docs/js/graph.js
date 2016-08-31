@@ -24,7 +24,19 @@ d3.json("date-posts-frequency.json", function (error,data) {
     last_thirty.push({date: d[0],count: d[1]});
   }
 
-  x_axis.domain(d3.extent(last_thirty,function(d){return d.date; }));
+  x_axis.domain(d3.extent(last_thirty,function(d)
+    {
+      return d.date;
+    }
+  ));
+  y_axis.domain(
+    [0, d3.max(last_thirty,function(d) {return d.count;})]
+  );
+
+  svg.append("path")
+  .data([last_thirty])
+  .attr("class","line")
+  .attr("d",line);
 
   last_thirty.forEach(function(obj){
     console.log(obj);
