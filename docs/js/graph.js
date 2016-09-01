@@ -1,3 +1,5 @@
+/* Would like to credit D3 Tip and Tricks by Malcom Maclean for example code on how to write a line graph.  */
+
 $(document).ready(function()
 {
   var width = 700;
