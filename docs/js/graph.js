@@ -1,6 +1,6 @@
 $(document).ready(function()
 {
-  var width = 900;
+  var width = 500;
   var height = 500;
 
   var x_axis = d3.scaleTime().range([0,width]);
