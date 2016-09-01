@@ -23,7 +23,7 @@ $(document).ready(function()
     for(i=0;i < 30;i++)
     {
       var d = data[data.length - 30 + i];
-      last_thirty.push({date: d[0],count: d[1]});
+      last_thirty.push({date: new Date(d[0]),count: d[1]});
     }
 
     x_axis.domain(d3.extent(last_thirty,function(d)
