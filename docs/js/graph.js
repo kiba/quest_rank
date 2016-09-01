@@ -37,9 +37,9 @@ d3.json("date-posts-frequency.json", function (error,data) {
   .data([last_thirty])
   .attr("class","line")
   .attr("d",line);
-
+/*
   last_thirty.forEach(function(obj){
     console.log(obj);
   });
-
+*/
 });
