@@ -1,11 +1,11 @@
 $(document).ready(function()
 {
-  var width = 500;
+  var width = 700;
   var height = 500;
 
   margin = 20;
 
-  var x_axis = d3.scaleTime().range([0,width - margin]);
+  var x_axis = d3.scaleTime().range([margin,width - margin]);
   var y_axis = d3.scaleTime().range([height - margin,0]);
 
   var line = d3.line()
