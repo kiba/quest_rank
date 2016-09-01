@@ -8,7 +8,7 @@ $(document).ready(function()
   margin = 50;
 
   var x_axis = d3.scaleTime().range([margin,width - margin]);
-  var y_axis = d3.scaleLinear().range([height - margin,0]);
+  var y_axis = d3.scaleLinear().range([height,0]);
 
   var line = d3.line()
   .x(function(d) { return x_axis(d.date); })
@@ -49,6 +49,7 @@ $(document).ready(function()
     .call(d3.axisBottom(x_axis));
 
     svg.append("g")
+    .attr("transform", "translate(50,0)")
     .call(d3.axisLeft(y_axis));
   /*
     last_thirty.forEach(function(obj){
