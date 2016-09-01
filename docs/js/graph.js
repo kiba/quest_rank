@@ -8,7 +8,7 @@ var line = d3.line()
 .x(function(d) { return x(d.date); })
 .y(function(d) { return y(d.count); });
 
-var svg = d3.select("body").append("svg")
+var svg = d3.select("#svg").append("svg")
 .attr("width",width + 100)
 .attr("height", height + 100)
 .append("g");
