@@ -3,8 +3,10 @@ $(document).ready(function()
   var width = 500;
   var height = 500;
 
-  var x_axis = d3.scaleTime().range([0,width]);
-  var y_axis = d3.scaleTime().range([height,0]);
+  margin = 20;
+
+  var x_axis = d3.scaleTime().range([0,width - margin]);
+  var y_axis = d3.scaleTime().range([height - margin,0]);
 
   var line = d3.line()
   .x(function(d) { return x_axis(d.date); })
