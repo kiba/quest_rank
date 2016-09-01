@@ -41,6 +41,13 @@ $(document).ready(function()
     .data([last_thirty])
     .attr("class","line")
     .attr("d",line);
+
+    svg.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x_axis));
+
+    svg.append("g")
+    .call(d3.axisLeft(y_axis));
   /*
     last_thirty.forEach(function(obj){
       console.log(obj);
