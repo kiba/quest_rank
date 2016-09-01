@@ -7,8 +7,8 @@ $(document).ready(function()
   var y_axis = d3.scaleTime().range([height,0]);
 
   var line = d3.line()
-  .x(function(d) { return x(d.date); })
-  .y(function(d) { return y(d.count); });
+  .x(function(d) { return x_axis(d.date); })
+  .y(function(d) { return y_axis(d.count); });
 
   var svg = d3.select("#svg").append("svg")
   .attr("width",width + 100)
