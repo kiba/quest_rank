@@ -55,7 +55,7 @@ $(document).ready(function()
     svg.append("g")
     .append("text")
     .attr("value", "check")
-    .attr("transform", "translate(100,100)")
+    .attr("transform", "translate(100,100)");
   /*
     last_thirty.forEach(function(obj){
       console.log(obj);
