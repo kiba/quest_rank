@@ -51,6 +51,11 @@ $(document).ready(function()
     svg.append("g")
     .attr("transform", "translate(50,0)")
     .call(d3.axisLeft(y_axis));
+
+    svg.append("g")
+    .append("text")
+    .attr("value", "check")
+    .attr("transform", "translate(100,100)")
   /*
     last_thirty.forEach(function(obj){
       console.log(obj);
