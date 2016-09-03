@@ -53,9 +53,9 @@ $(document).ready(function()
     .call(d3.axisLeft(y_axis));
 
     svg.append("text")
-    .text("check")
-    .attr("x","30")
-    .attr("y","30");
+    .text("Last Thirty Days")
+    .attr("x",width / 2 - 50)
+    .attr("y",50);
 
     last_thirty.forEach(function(obj){
       console.log(obj);
