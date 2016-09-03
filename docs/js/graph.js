@@ -52,10 +52,11 @@ $(document).ready(function()
     .attr("transform", "translate(50,0)")
     .call(d3.axisLeft(y_axis));
 
-    svg.append("g")
-    .append("text")
-    .attr("value", "check")
-    .attr("transform", "translate(100,100)");
+    svg.append("text")
+    .text("check")
+    .attr("x","30")
+    .attr("y","30");
+
     last_thirty.forEach(function(obj){
       console.log(obj);
     });
