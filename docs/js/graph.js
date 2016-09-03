@@ -46,7 +46,12 @@ $(document).ready(function()
 
     svg.append("g")
     .attr("transform", "translate(0," + height + ")")
-    .call(d3.axisBottom(x_axis));
+    .call(d3.axisBottom(x_axis))
+    .selectAll("text")
+    .attr("x","0.9em")
+    .attr("y","1em")
+    .attr("dy","0.35em")
+    .attr("transform", "rotate(60)");
 
     svg.append("g")
     .attr("transform", "translate(50,0)")
@@ -57,8 +62,8 @@ $(document).ready(function()
     .attr("x",width / 2 - 50)
     .attr("y",50);
 
-    last_thirty.forEach(function(obj){
+    /*last_thirty.forEach(function(obj){
       console.log(obj);
-    });
+    });*/
   });
 });
