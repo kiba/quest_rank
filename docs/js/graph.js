@@ -63,10 +63,6 @@ $(document).ready(function()
       .text("Last Thirty Days")
       .attr("x",width / 2 - 50)
       .attr("y",50);
-
-      /*last_thirty.forEach(function(obj){
-        console.log(obj);
-      });*/
     });
   }
 
