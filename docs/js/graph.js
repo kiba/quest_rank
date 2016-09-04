@@ -69,12 +69,14 @@ $(document).ready(function()
   function last_12_months_chart()
   {
     d3.json("date-posts-frequency.json", function (error,data) {
+      if (error) { alert(error);}
     });
   }
 
   function every_month_chart()
   {
     d3.json("date-posts-frequency.json", function (error,data) {
+      if (error) { alert(error);}
     });
   }
 
