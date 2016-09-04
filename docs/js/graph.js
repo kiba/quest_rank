@@ -19,51 +19,56 @@ $(document).ready(function()
   .attr("height", height + 100)
   .append("g");
 
-  d3.json("date-posts-frequency.json", function (error,data) {
-    if (error) { alert(error);}
 
-    var last_thirty = [];
+  function last_thirty_chart () {
+    d3.json("date-posts-frequency.json", function (error,data) {
+      if (error) { alert(error);}
 
-    for(i=0;i < 30;i++)
-    {
-      var d = data[data.length - 30 + i];
-      last_thirty.push({date: new Date(d[0]),count: d[1]});
-    }
+      var last_thirty = [];
 
-    x_axis.domain(d3.extent(last_thirty,function(d)
+      for(i=0;i < 30;i++)
       {
-        return d.date;
+        var d = data[data.length - 30 + i];
+        last_thirty.push({date: new Date(d[0]),count: d[1]});
       }
-    ));
-    y_axis.domain(
-      [0, d3.max(last_thirty,function(d) {return d.count;})]
-    );
 
-    svg.append("path")
-    .data([last_thirty])
-    .attr("class","line")
-    .attr("d",line);
+      x_axis.domain(d3.extent(last_thirty,function(d)
+        {
+          return d.date;
+        }
+      ));
+      y_axis.domain(
+        [0, d3.max(last_thirty,function(d) {return d.count;})]
+      );
 
-    svg.append("g")
-    .attr("transform", "translate(0," + height + ")")
-    .call(d3.axisBottom(x_axis))
-    .selectAll("text")
-    .attr("x","0.9em")
-    .attr("y","1em")
-    .attr("dy","0.35em")
-    .attr("transform", "rotate(60)");
+      svg.append("path")
+      .data([last_thirty])
+      .attr("class","line")
+      .attr("d",line);
 
-    svg.append("g")
-    .attr("transform", "translate(50,0)")
-    .call(d3.axisLeft(y_axis));
+      svg.append("g")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x_axis))
+      .selectAll("text")
+      .attr("x","0.9em")
+      .attr("y","1em")
+      .attr("dy","0.35em")
+      .attr("transform", "rotate(60)");
 
-    svg.append("text")
-    .text("Last Thirty Days")
-    .attr("x",width / 2 - 50)
-    .attr("y",50);
+      svg.append("g")
+      .attr("transform", "translate(50,0)")
+      .call(d3.axisLeft(y_axis));
 
-    /*last_thirty.forEach(function(obj){
-      console.log(obj);
-    });*/
-  });
+      svg.append("text")
+      .text("Last Thirty Days")
+      .attr("x",width / 2 - 50)
+      .attr("y",50);
+
+      /*last_thirty.forEach(function(obj){
+        console.log(obj);
+      });*/
+    });
+  }
+
+  last_thirty_chart()
 });
