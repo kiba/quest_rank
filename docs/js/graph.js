@@ -70,7 +70,7 @@ $(document).ready(function()
   {
     d3.json("date-posts-frequency.json", function (error,data) {
       if (error) { alert(error);}
-      last_12_months = [];
+      var last_12_months = [];
       if (data.length < 365)
       {
         var days = data.length;
@@ -82,6 +82,7 @@ $(document).ready(function()
       for(i=0;i < (days);i++)
       {
         var d = data[data.length - days + i];
+
       }
     });
   }
