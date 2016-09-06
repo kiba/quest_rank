@@ -98,6 +98,6 @@ $(document).ready(function()
 
   $("#last30").click(function()
   {
-    last_thirty_chart()
+    last_thirty_chart();
   });
 });
