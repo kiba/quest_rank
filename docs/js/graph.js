@@ -110,6 +110,12 @@ $(document).ready(function()
           [0, d3.max(last_12_months,function(d) {return d.count;})]
         );
 
+        x_axis.domain(d3.extent(last_thirty,function(d)
+          {
+            return d.date;
+          }
+        ));
+
       }
       last_12_months.forEach(function(d)
       {
