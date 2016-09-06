@@ -100,6 +100,11 @@ $(document).ready(function()
           }
 
         }
+
+        y_axis.domain(
+          [0, d3.max(last_12_months,function(d) {return d.count;})]
+        );
+
       }
       last_12_months.forEach(function(d)
       {
