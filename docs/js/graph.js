@@ -82,13 +82,13 @@ $(document).ready(function()
       for(i=0;i < (days);i++)
       {
         var d = data[data.length - days + i];
+        var month = moment(new Date(d[0])).month()
         if (last_12_months.length == 0)
         {
-          last_12_months.push({month: moment((new Date(d[0]))).month(), count: d[1]});
+          last_12_months.push({month: month, count: d[1]});
         }
         else
         {
-          month = moment(new Date(d[0])).month()
           if (last_12_months[data.length - 1] == month)
           {
             last_12_months[data.length - 1].count += d[1];
