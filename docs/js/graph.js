@@ -95,4 +95,9 @@ $(document).ready(function()
 
 
   last_thirty_chart()
+
+  $("#last30").click(function()
+  {
+    last_thirty_chart()
+  });
 });
