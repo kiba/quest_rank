@@ -89,9 +89,10 @@ $(document).ready(function()
         }
         else
         {
-          if (last_12_months[data.length - 1] == month)
+          var last = last_12_months[last_12_months.length - 1];
+          if (last.month == month)
           {
-            last_12_months[data.length - 1].count += d[1];
+            last.count += d[1];
           }
           else
           {
