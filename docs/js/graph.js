@@ -82,7 +82,10 @@ $(document).ready(function()
       for(i=0;i < (days);i++)
       {
         var d = data[data.length - days + i];
-
+        if (last_12_months.length == 0)
+        {
+          last_12_months.push({month: moment((new Date(d[0]))).month, count: d[1]});
+        }
       }
     });
   }
