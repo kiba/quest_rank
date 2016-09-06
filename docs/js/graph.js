@@ -84,9 +84,26 @@ $(document).ready(function()
         var d = data[data.length - days + i];
         if (last_12_months.length == 0)
         {
-          last_12_months.push({month: moment((new Date(d[0]))).month, count: d[1]});
+          last_12_months.push({month: moment((new Date(d[0]))).month(), count: d[1]});
+        }
+        else
+        {
+          month = moment(new Date(d[0])).month()
+          if (last_12_months[data.length - 1] == month)
+          {
+            last_12_months[data.length - 1].count += d[1];
+          }
+          else
+          {
+            last_12_months.push({month: month, count: d[1]});
+          }
+
         }
       }
+      last_12_months.forEach(function(d)
+      {
+        console.log(d);
+      });
     });
   }
 
