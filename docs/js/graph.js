@@ -105,4 +105,9 @@ $(document).ready(function()
   {
     last_12_months_chart();
   });
+
+  $("#everymonth").click(function()
+  {
+    every_month_chart();
+  });
 });
