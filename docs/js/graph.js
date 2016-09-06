@@ -49,6 +49,7 @@ $(document).ready(function()
       svg.append("g")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(x_axis))
+      .attr("class", "x_axis")
       .selectAll("text")
       .attr("x","0.9em")
       .attr("y","1em")
@@ -57,7 +58,8 @@ $(document).ready(function()
 
       svg.append("g")
       .attr("transform", "translate(50,0)")
-      .call(d3.axisLeft(y_axis));
+      .call(d3.axisLeft(y_axis))
+      .attr("class", "y_axis");
 
       svg.append("text")
       .text("Last Thirty Days")
