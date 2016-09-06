@@ -79,24 +79,31 @@ $(document).ready(function()
       {
         var days = 365;
       }
+
+      var months = moment.months()
       for(i=0;i < (days);i++)
       {
         var d = data[data.length - days + i];
-        var month = moment(new Date(d[0])).month()
+        var date = moment(new Date(d[0]));
+        var current_month = date.month();
+        var year = date.year();
+        var full_date = months[current_month] + " 1, " + year;
+        console.log(date);
         if (last_12_months.length == 0)
         {
-          last_12_months.push({month: month, count: d[1]});
+
+          last_12_months.push({date: full_date, count: d[1]});
         }
         else
         {
           var last = last_12_months[last_12_months.length - 1];
-          if (last.month == month)
+          if (last.month == current_month)
           {
             last.count += d[1];
           }
           else
           {
-            last_12_months.push({month: month, count: d[1]});
+            last_12_months.push({date: full_date, count: d[1]});
           }
 
         }
