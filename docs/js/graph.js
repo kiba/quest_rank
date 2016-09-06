@@ -112,13 +112,18 @@ $(document).ready(function()
           [0, d3.max(last_12_months,function(d) {return d.count;})]
         );
 
-        x_axis.domain(d3.extent(last_thirty,function(d)
+        x_axis.domain(d3.extent(last_12_months,function(d)
           {
             return d.date;
           }
         ));
 
         svg = d3.select("#svg").transition();
+
+        svg.select(".line")
+        .duration(500)
+        .attr("d",line(last_12_months));
+
 
       }
       last_12_months.forEach(function(d)
