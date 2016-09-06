@@ -95,7 +95,7 @@ $(document).ready(function()
         else
         {
           var last = last_12_months[last_12_months.length - 1];
-          if (last.month == current_month)
+          if (moment(last.date).month() == current_month)
           {
             last.count += d[1];
           }
