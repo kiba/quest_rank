@@ -116,6 +116,8 @@ $(document).ready(function()
           }
         ));
 
+        svg = d3.select("#svg").transition();
+
       }
       last_12_months.forEach(function(d)
       {
