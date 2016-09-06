@@ -100,4 +100,9 @@ $(document).ready(function()
   {
     last_thirty_chart();
   });
+
+  $("#last12months").click(function()
+  {
+    last_12_months_chart();
+  });
 });
