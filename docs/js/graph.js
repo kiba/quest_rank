@@ -87,11 +87,9 @@ $(document).ready(function()
         var date = moment(new Date(d[0]));
         var current_month = date.month();
         var year = date.year();
-        var full_date = months[current_month] + " 1, " + year;
-        console.log(date);
+        var full_date = new Date(months[current_month] + " 1, " + year);
         if (last_12_months.length == 0)
         {
-
           last_12_months.push({date: full_date, count: d[1]});
         }
         else
