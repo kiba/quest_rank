@@ -110,7 +110,8 @@ $(document).ready(function()
       }
 
       y_axis.domain(
-        [0, d3.max(last_12_months,function(d) {return d.count;})]
+        [0, d3.max(last_12_months,function(d) {
+          return d.count;})]
       );
 
       x_axis.domain(d3.extent(last_12_months,function(d)
@@ -129,7 +130,9 @@ $(document).ready(function()
       .duration(500)
       .call(d3.axisBottom(x_axis));
 
-
+      svg.select(".y_axis")
+      .duration(500)
+      .call(d3.axisLeft(y_axis));
     });
   }
 
