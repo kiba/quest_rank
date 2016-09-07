@@ -124,12 +124,12 @@ $(document).ready(function()
         .duration(500)
         .attr("d",line(last_12_months));
 
+        svg.select(".x_axis")
+        .duration(500)
+        .call(d3.axisBottom(x_axis));
+
 
       }
-      last_12_months.forEach(function(d)
-      {
-        console.log(d);
-      });
     });
   }
 
