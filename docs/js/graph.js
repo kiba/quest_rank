@@ -107,29 +107,29 @@ $(document).ready(function()
           }
 
         }
-
-        y_axis.domain(
-          [0, d3.max(last_12_months,function(d) {return d.count;})]
-        );
-
-        x_axis.domain(d3.extent(last_12_months,function(d)
-          {
-            return d.date;
-          }
-        ));
-
-        svg = d3.select("#svg").transition();
-
-        svg.select(".line")
-        .duration(500)
-        .attr("d",line(last_12_months));
-
-        svg.select(".x_axis")
-        .duration(500)
-        .call(d3.axisBottom(x_axis));
-
-
       }
+
+      y_axis.domain(
+        [0, d3.max(last_12_months,function(d) {return d.count;})]
+      );
+
+      x_axis.domain(d3.extent(last_12_months,function(d)
+        {
+          return d.date;
+        }
+      ));
+
+      svg = d3.select("#svg").transition();
+
+      svg.select(".line")
+      .duration(500)
+      .attr("d",line(last_12_months));
+
+      svg.select(".x_axis")
+      .duration(500)
+      .call(d3.axisBottom(x_axis));
+
+
     });
   }
 
