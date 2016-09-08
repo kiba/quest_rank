@@ -128,6 +128,11 @@ $(document).ready(function()
       .attr("d",line(last_12_months));
 
       svg.select(".x_axis")
+      .selectAll("text")
+      .attr("dy","1.5em")
+      .attr("transform", null);
+
+      svg.select(".x_axis")
       .duration(500)
       .call(d3.axisBottom(x_axis));
 
