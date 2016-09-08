@@ -134,6 +134,10 @@ $(document).ready(function()
       svg.select(".y_axis")
       .duration(500)
       .call(d3.axisLeft(y_axis));
+
+      svg.select(".title")
+      .duration(500)
+      .text("Last 12 Months");
     });
   }
 
