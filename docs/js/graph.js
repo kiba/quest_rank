@@ -63,6 +63,7 @@ $(document).ready(function()
 
       svg.append("text")
       .text("Last Thirty Days")
+      .attr("class", "title")
       .attr("x",width / 2 - 50)
       .attr("y",50);
     });
