@@ -19,6 +19,11 @@ $(document).ready(function()
   .attr("height", height + 100)
   .append("g");
 
+  function getDate(d)
+  {
+    return d.date;
+  }
+
 
   function last_thirty_chart () {
     d3.json("data/date-posts-frequency.json", function (error,data) {
@@ -32,11 +37,8 @@ $(document).ready(function()
         last_thirty.push({date: new Date(d[0]),count: d[1]});
       }
 
-      x_axis.domain(d3.extent(last_thirty,function(d)
-        {
-          return d.date;
-        }
-      ));
+      x_axis.domain(d3.extent(last_thirty,getDate));
+
       y_axis.domain(
         [0, d3.max(last_thirty,function(d) {return d.count;})]
       );
