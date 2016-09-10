@@ -24,6 +24,10 @@ $(document).ready(function()
     return d.date;
   }
 
+  function getCount(d)
+  {
+    return d.count;
+  }
 
   function last_thirty_chart () {
     d3.json("data/date-posts-frequency.json", function (error,data) {
