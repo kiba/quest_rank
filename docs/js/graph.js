@@ -21,7 +21,7 @@ $(document).ready(function()
 
 
   function last_thirty_chart () {
-    d3.json("date-posts-frequency.json", function (error,data) {
+    d3.json("data/date-posts-frequency.json", function (error,data) {
       if (error) { alert(error);}
 
       var last_thirty = [];
@@ -71,7 +71,7 @@ $(document).ready(function()
 
   function last_12_months_chart()
   {
-    d3.json("date-posts-frequency.json", function (error,data) {
+    d3.json("data/date-posts-frequency.json", function (error,data) {
       if (error) { alert(error);}
       var last_12_months = [];
       if (data.length < 365)
@@ -148,7 +148,7 @@ $(document).ready(function()
 
   function every_month_chart()
   {
-    d3.json("date-posts-frequency.json", function (error,data) {
+    d3.json("data/date-posts-frequency.json", function (error,data) {
       if (error) { alert(error);}
     });
   }
