@@ -117,11 +117,7 @@ $(document).ready(function()
           return d.count;})]
       );
 
-      x_axis.domain(d3.extent(last_12_months,function(d)
-        {
-          return d.date;
-        }
-      ));
+      x_axis.domain(d3.extent(last_12_months,getDate));
 
       svg = d3.select("#svg").transition();
 
