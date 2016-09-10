@@ -43,9 +43,7 @@ $(document).ready(function()
 
       x_axis.domain(d3.extent(last_thirty,getDate));
 
-      y_axis.domain(
-        [0, d3.max(last_thirty,function(d) {return d.count;})]
-      );
+      y_axis.domain([0, d3.max(last_thirty,getCount)]);
 
       svg.append("path")
       .data([last_thirty])
@@ -117,8 +115,7 @@ $(document).ready(function()
       }
 
       y_axis.domain(
-        [0, d3.max(last_12_months,function(d) {
-          return d.count;})]
+        [0, d3.max(last_12_months,getCount)]
       );
 
       x_axis.domain(d3.extent(last_12_months,getDate));
