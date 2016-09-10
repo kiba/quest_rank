@@ -34,8 +34,8 @@ end
 
 puts records
 
-content = dates.to_a.to_json
+posting_frequency = dates.to_a.to_json
 
 File.open("docs/data/date-posts-frequency.json","w") do |f|
-  f.write(content)
+  f.write(posting_frequency)
 end
