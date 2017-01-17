@@ -191,7 +191,7 @@ $(document).ready(function()
   }
 
 
-  last_thirty_chart()
+  dummy_chart();
 
   $("#last30").click(function()
   {
