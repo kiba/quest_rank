@@ -79,35 +79,34 @@ $(document).ready(function()
         last_thirty.push({date: new Date(d[0]),count: d[1]});
       }
 
+      y_axis.domain(
+        [0, d3.max(last_thirty,getCount)]
+      );
+
       x_axis.domain(d3.extent(last_thirty,getDate));
 
-      y_axis.domain([0, d3.max(last_thirty,getCount)]);
+      svg = d3.select("#svg").transition();
 
-      svg.append("path")
-      .data([last_thirty])
-      .attr("class","line")
-      .attr("d",line);
+      svg.select(".line")
+      .duration(500)
+      .attr("d",line(last_thirty));
 
-      svg.append("g")
-      .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x_axis))
-      .attr("class", "x_axis")
+      svg.select(".x_axis")
       .selectAll("text")
-      .attr("x","0.9em")
-      .attr("y","1em")
-      .attr("dy","0.35em")
-      .attr("transform", "rotate(60)");
+      .attr("dy","1.5em")
+      .attr("transform", null);
 
-      svg.append("g")
-      .attr("transform", "translate(50,0)")
-      .call(d3.axisLeft(y_axis))
-      .attr("class", "y_axis");
+      svg.select(".x_axis")
+      .duration(500)
+      .call(d3.axisBottom(x_axis));
 
-      svg.append("text")
-      .text("Last Thirty Days")
-      .attr("class", "title")
-      .attr("x",width / 2 - 50)
-      .attr("y",50);
+      svg.select(".y_axis")
+      .duration(500)
+      .call(d3.axisLeft(y_axis));
+
+      svg.select(".title")
+      .duration(500)
+      .text("Last Thirty Days");
     });
   }
 
