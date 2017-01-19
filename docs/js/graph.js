@@ -42,11 +42,13 @@ $(document).ready(function()
     draw(last_thirty,"Last Thirty Day");
   }
 
-  function initialize_chart () {
-    d3.json("data/date-posts-frequency.json", function (error,data) {
-      if (error) { alert(error);}
-      last_thirty_days(data,initial_draw);
-    });
+  function initial_chart (error,data) {
+    if (error) { alert(error);}
+    last_thirty_days(data,initial_draw);
+  }
+
+  function graph (chart) {
+    d3.json("data/date-posts-frequency.json", chart);
   }
 
   function last_12_months_chart()
@@ -101,7 +103,7 @@ $(document).ready(function()
     });
   }
 
-  initialize_chart(initial_draw);
+  graph(initial_chart);
 
   function initial_draw(data)
   {
