@@ -47,6 +47,11 @@ $(document).ready(function()
     last_thirty_days(data,initial_draw);
   }
 
+  function thirty_days_chart (error,data) {
+    if (error) { alert(error);}
+    last_thrity_days(data,update_draw);
+  }
+
   function graph (chart) {
     d3.json("data/date-posts-frequency.json", chart);
   }
