@@ -198,19 +198,19 @@ $(document).ready(function()
     .attr("y",50);
   }
 
-  function update_draw()
+  function update_draw(data,title)
   {
     y_axis.domain(
-      [0, d3.max(last_thirty,getCount)]
+      [0, d3.max(data,getCount)]
     );
 
-    x_axis.domain(d3.extent(last_thirty,getDate));
+    x_axis.domain(d3.extent(data,getDate));
 
     svg = d3.select("#svg").transition();
 
     svg.select(".line")
     .duration(500)
-    .attr("d",line(last_thirty));
+    .attr("d",line(data));
 
     svg.select(".x_axis")
     .selectAll("text")
@@ -227,7 +227,7 @@ $(document).ready(function()
 
     svg.select(".title")
     .duration(500)
-    .text("Last Thirty Days");
+    .text(title);
   }
 
   $("#last30").click(function()
