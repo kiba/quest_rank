@@ -100,9 +100,6 @@ $(document).ready(function()
 
   function every_month_chart()
   {
-    d3.json("data/date-posts-frequency.json", function (error,data) {
-      if (error) { alert(error);}
-    });
   }
 
   graph(initial_chart);
