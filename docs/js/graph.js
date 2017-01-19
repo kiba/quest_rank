@@ -58,47 +58,44 @@ $(document).ready(function()
 
   function last_12_months_chart()
   {
-    d3.json("data/date-posts-frequency.json", function (error,data) {
-      if (error) { alert(error);}
-      var last_12_months = [];
-      if (data.length < 365)
+    if (error) { alert(error);}
+    var last_12_months = [];
+    if (data.length < 365)
+    {
+      var days = data.length;
+    }
+    else
+    {
+      var days = 365;
+    }
+
+    var months = moment.months()
+    for(i=0;i < (days);i++)
+    {
+      var d = data[data.length - days + i];
+      var date = moment(new Date(d[0]));
+      var current_month = date.month();
+      var year = date.year();
+      var full_date = new Date(months[current_month] + " 1, " + year);
+      if (last_12_months.length == 0)
       {
-        var days = data.length;
+        last_12_months.push({date: full_date, count: d[1]});
       }
       else
       {
-        var days = 365;
-      }
-
-      var months = moment.months()
-      for(i=0;i < (days);i++)
-      {
-        var d = data[data.length - days + i];
-        var date = moment(new Date(d[0]));
-        var current_month = date.month();
-        var year = date.year();
-        var full_date = new Date(months[current_month] + " 1, " + year);
-        if (last_12_months.length == 0)
+        var last = last_12_months[last_12_months.length - 1];
+        if (moment(last.date).month() == current_month)
         {
-          last_12_months.push({date: full_date, count: d[1]});
+          last.count += d[1];
         }
         else
         {
-          var last = last_12_months[last_12_months.length - 1];
-          if (moment(last.date).month() == current_month)
-          {
-            last.count += d[1];
-          }
-          else
-          {
-            last_12_months.push({date: full_date, count: d[1]});
-          }
-
+          last_12_months.push({date: full_date, count: d[1]});
         }
-      }
 
-      update_draw(last_12_months,"Last Twelve Months");
-    });
+      }
+    }
+    update_draw(last_12_months,"Last Twelve Months");
   }
 
   function every_month_chart()
