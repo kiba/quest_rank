@@ -193,6 +193,38 @@ $(document).ready(function()
   dummy_chart();
   last_thirty_chart();
 
+  function initial_draw()
+  {
+    x_axis.domain(d3.extent(last_thirty,getDate));
+    y_axis.domain([0,d3.max(last_thirty,getCount)]);
+
+    svg.append("path")
+    .data([last_thirty])
+    .attr("class","line")
+    .attr("d",line);
+
+    svg.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x_axis))
+    .attr("class", "x_axis")
+    .selectAll("text")
+    .attr("x","0.9em")
+    .attr("y","1em")
+    .attr("dy","0.35em")
+    .attr("transform", "rotate(60)");
+
+    svg.append("g")
+    .attr("transform", "translate(50,0)")
+    .call(d3.axisLeft(y_axis))
+    .attr("class", "y_axis");
+
+    svg.append("text")
+    .text("Last Thirty Days")
+    .attr("class", "title")
+    .attr("x",width / 2 - 50)
+    .attr("y",50);
+  }
+
   $("#last30").click(function()
   {
     last_thirty_chart();
