@@ -29,17 +29,6 @@ $(document).ready(function()
     return d.count;
   }
 
-  function dummy_chart() {
-    var last_thirty = [];
-    for(i=0;i < 30;i++)
-    {
-      var d = moment().subtract(30 - i).toDate()
-      last_thirty.push({date: d, count: Math.ceil(Math.random() * 100)});
-    }
-
-    initial_draw(last_thirty);
-  }
-
   function success_thirty(data,draw)
   {
     var last_thirty = [];
