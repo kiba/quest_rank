@@ -29,7 +29,7 @@ $(document).ready(function()
     return d.count;
   }
 
-  function success_thirty(data,draw)
+  function last_thirty_days(data,draw)
   {
     var last_thirty = [];
 
@@ -43,12 +43,9 @@ $(document).ready(function()
   }
 
   function initialize_chart () {
-    d3.json("data/date-posts-frequency.json", function (error,data,draw) {
-
+    d3.json("data/date-posts-frequency.json", function (error,data) {
       if (error) { alert(error);}
-
-
-      success_thirty(data,initial_draw);
+      last_thirty_days(data,initial_draw);
     });
   }
 
