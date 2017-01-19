@@ -42,6 +42,11 @@ $(document).ready(function()
     draw(last_thirty,"Last Thirty Day");
   }
 
+  function last_twelve_months(data,draw)
+  {
+    
+  }
+
   function initial_chart (error,data) {
     if (error) { alert(error);}
     last_thirty_days(data,initial_draw);
