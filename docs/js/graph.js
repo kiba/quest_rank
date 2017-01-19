@@ -193,13 +193,13 @@ $(document).ready(function()
   dummy_chart();
   last_thirty_chart();
 
-  function initial_draw()
+  function initial_draw(data)
   {
-    x_axis.domain(d3.extent(last_thirty,getDate));
-    y_axis.domain([0,d3.max(last_thirty,getCount)]);
+    x_axis.domain(d3.extent(data,getDate));
+    y_axis.domain([0,d3.max(data,getCount)]);
 
     svg.append("path")
-    .data([last_thirty])
+    .data([data])
     .attr("class","line")
     .attr("d",line);
 
