@@ -40,19 +40,26 @@ $(document).ready(function()
     initial_draw(last_thirty);
   }
 
-  function last_thirty_chart () {
-    d3.json("data/date-posts-frequency.json", function (error,data) {
+  function success_thirty(data,draw)
+  {
+    var last_thirty = [];
+
+    for(i=0;i < 30;i++)
+    {
+      var d = data[data.length - 30 + i];
+      last_thirty.push({date: new Date(d[0]),count: d[1]});
+    }
+
+    draw(last_thirty,"Last Thirty Day");
+  }
+
+  function initialize_chart () {
+    d3.json("data/date-posts-frequency.json", function (error,data,draw) {
+
       if (error) { alert(error);}
 
-      var last_thirty = [];
 
-      for(i=0;i < 30;i++)
-      {
-        var d = data[data.length - 30 + i];
-        last_thirty.push({date: new Date(d[0]),count: d[1]});
-      }
-
-      update_draw(last_thirty,"Last Thirty Day");
+      success_thirty(data,initial_draw);
     });
   }
 
@@ -108,9 +115,7 @@ $(document).ready(function()
     });
   }
 
-
-  dummy_chart();
-  last_thirty_chart();
+  initialize_chart(initial_draw);
 
   function initial_draw(data)
   {
