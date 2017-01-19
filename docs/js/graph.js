@@ -49,7 +49,7 @@ $(document).ready(function()
 
   function thirty_days_chart (error,data) {
     if (error) { alert(error);}
-    last_thrity_days(data,update_draw);
+    last_thirty_days(data,update_draw);
   }
 
   function graph (chart) {
