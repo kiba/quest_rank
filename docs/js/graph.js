@@ -198,6 +198,38 @@ $(document).ready(function()
     .attr("y",50);
   }
 
+  function update_draw()
+  {
+    y_axis.domain(
+      [0, d3.max(last_thirty,getCount)]
+    );
+
+    x_axis.domain(d3.extent(last_thirty,getDate));
+
+    svg = d3.select("#svg").transition();
+
+    svg.select(".line")
+    .duration(500)
+    .attr("d",line(last_thirty));
+
+    svg.select(".x_axis")
+    .selectAll("text")
+    .attr("dy","1.5em")
+    .attr("transform", null);
+
+    svg.select(".x_axis")
+    .duration(500)
+    .call(d3.axisBottom(x_axis));
+
+    svg.select(".y_axis")
+    .duration(500)
+    .call(d3.axisLeft(y_axis));
+
+    svg.select(".title")
+    .duration(500)
+    .text("Last Thirty Days");
+  }
+
   $("#last30").click(function()
   {
     last_thirty_chart();
