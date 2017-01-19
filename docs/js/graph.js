@@ -5,7 +5,7 @@ $(document).ready(function()
   var width = 700;
   var height = 500;
 
-  margin = 50;
+  var margin = 50;
 
   var x_axis = d3.scaleTime().range([margin,width - margin]);
   var y_axis = d3.scaleLinear().range([height,margin]);
