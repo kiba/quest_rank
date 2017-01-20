@@ -42,26 +42,7 @@ $(document).ready(function()
     draw(last_thirty,"Last Thirty Day");
   }
 
-  function last_twelve_months(data,draw)
-  {
-    
-  }
-
-  function initial_chart (error,data) {
-    if (error) { alert(error);}
-    last_thirty_days(data,initial_draw);
-  }
-
-  function thirty_days_chart (error,data) {
-    if (error) { alert(error);}
-    last_thirty_days(data,update_draw);
-  }
-
-  function graph (chart) {
-    d3.json("data/date-posts-frequency.json", chart);
-  }
-
-  function last_12_months_chart()
+  function last_twelve_months_chart(data,draw)
   {
     if (error) { alert(error);}
     var last_12_months = [];
@@ -100,7 +81,21 @@ $(document).ready(function()
 
       }
     }
-    update_draw(last_12_months,"Last Twelve Months");
+    draw(last_12_months,"Last Twelve Months");
+  }
+
+  function initial_chart (error,data) {
+    if (error) { alert(error);}
+    last_thirty_days(data,initial_draw);
+  }
+
+  function thirty_days_chart (error,data) {
+    if (error) { alert(error);}
+    last_thirty_days(data,update_draw);
+  }
+
+  function graph (chart) {
+    d3.json("data/date-posts-frequency.json", chart);
   }
 
   function every_month_chart()
