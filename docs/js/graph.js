@@ -42,9 +42,8 @@ $(document).ready(function()
     draw(last_thirty,"Last Thirty Day");
   }
 
-  function last_twelve_months_chart(data,draw)
+  function last_twelve_months(data,draw)
   {
-    if (error) { alert(error);}
     var last_12_months = [];
     if (data.length < 365)
     {
@@ -92,6 +91,11 @@ $(document).ready(function()
   function thirty_days_chart (error,data) {
     if (error) { alert(error);}
     last_thirty_days(data,update_draw);
+  }
+
+  function last_twelve_months_chart (error,data) {
+    if (error) { alert(error);}
+    last_twelve_months(data,update_draw);
   }
 
   function graph (chart) {
@@ -170,12 +174,12 @@ $(document).ready(function()
 
   $("#last30").click(function()
   {
-    graph(thirty_days_chart,update_draw);
+    graph(thirty_days_chart);
   });
 
   $("#last12months").click(function()
   {
-    last_12_months_chart();
+    graph(last_twelve_months_chart);
   });
 
   $("#everymonth").click(function()
