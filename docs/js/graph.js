@@ -170,7 +170,7 @@ $(document).ready(function()
 
   $("#last30").click(function()
   {
-    last_thirty_chart();
+    graph(thirty_days_chart,update_draw);
   });
 
   $("#last12months").click(function()
