@@ -89,6 +89,7 @@ $(document).ready(function()
 
     function every_month(data,draw)
     {
+      var all_months = [];
       draw(all_months,"Every Month");
     }
 
