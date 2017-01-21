@@ -87,8 +87,9 @@ $(document).ready(function()
       draw(last_12_months,"Last Twelve Months");
     }
 
-    function every_months()
+    function every_month(data,draw)
     {
+      draw(all_months,"Every Month");
     }
 
     function initial_draw(data)
@@ -169,7 +170,7 @@ $(document).ready(function()
 
     $("#everymonth").click(function()
     {
-      every_months(data,update_draw);
+      every_month(data,update_draw);
     });
   }
 });
