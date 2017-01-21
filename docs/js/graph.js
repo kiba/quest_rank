@@ -106,8 +106,6 @@ $(document).ready(function()
     {
     }
 
-    graph(initial_chart);
-
     function initial_draw(data)
     {
       x_axis.domain(d3.extent(data,getDate));
