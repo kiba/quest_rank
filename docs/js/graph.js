@@ -90,6 +90,32 @@ $(document).ready(function()
     function every_month(data,draw)
     {
       var all_months = [];
+      var days = data.length;
+      for(i=0;i < (days);i++)
+      {
+        var d = data[data.length - days + i];
+        var date = moment(new Date(d[0]));
+        var current_month = date.month();
+        var year = date.year();
+        var full_date = new Date(months[current_month] + " 1, " + year);
+        if (last_12_months.length == 0)
+        {
+          last_12_months.push({date: full_date, count: d[1]});
+        }
+        else
+        {
+          var last = last_12_months[last_12_months.length - 1];
+          if (moment(last.date).month() == current_month)
+          {
+            last.count += d[1];
+          }
+          else
+          {
+            last_12_months.push({date: full_date, count: d[1]});
+          }
+
+        }
+      }
       draw(all_months,"Every Month");
     }
 
