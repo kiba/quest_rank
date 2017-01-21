@@ -87,7 +87,7 @@ $(document).ready(function()
       draw(last_12_months,"Last Twelve Months");
     }
 
-    function every_month_chart()
+    function every_months()
     {
     }
 
