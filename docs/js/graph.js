@@ -155,9 +155,11 @@ $(document).ready(function()
       .text(title);
     }
 
+    last_thirty_days(data,initial_draw);
+
     $("#last30").click(function()
     {
-      graph(thirty_days_chart);
+      last_thirty_days(data,update_draw);
     });
 
     $("#last12months").click(function()
