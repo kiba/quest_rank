@@ -169,7 +169,7 @@ $(document).ready(function()
 
     $("#everymonth").click(function()
     {
-      every_month_chart();
+      every_months(data,update_draw);
     });
   }
 });
