@@ -164,7 +164,7 @@ $(document).ready(function()
 
     $("#last12months").click(function()
     {
-      graph(last_twelve_months_chart);
+      last_twelve_months(data,update_draw)
     });
 
     $("#everymonth").click(function()
