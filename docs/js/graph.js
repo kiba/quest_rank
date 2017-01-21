@@ -87,21 +87,6 @@ $(document).ready(function()
       draw(last_12_months,"Last Twelve Months");
     }
 
-    function initial_chart (error,data) {
-      if (error) { alert(error);}
-      last_thirty_days(data,initial_draw);
-    }
-
-    function thirty_days_chart (error,data) {
-      if (error) { alert(error);}
-      last_thirty_days(data,update_draw);
-    }
-
-    function last_twelve_months_chart (error,data) {
-      if (error) { alert(error);}
-      last_twelve_months(data,update_draw);
-    }
-
     function every_month_chart()
     {
     }
