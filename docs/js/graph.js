@@ -113,7 +113,7 @@ $(document).ready(function()
       .tickSize(-width);
 
       var left = d3.axisLeft(y_axis)
-      .tickSize(-height);
+      .tickSize(-(height + 100));
 
       svg.append("g")
       .attr("transform", "translate(0," + height + ")")
