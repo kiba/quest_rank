@@ -117,7 +117,6 @@ $(document).ready(function()
       .attr("x","0.9em")
       .attr("y","1em")
       .attr("dy","0.35em")
-      .attr("transform", "rotate(60)");
 
       svg.append("g")
       .attr("transform", "translate(50,0)")
