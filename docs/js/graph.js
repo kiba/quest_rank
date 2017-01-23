@@ -109,14 +109,17 @@ $(document).ready(function()
       .attr("class","line")
       .attr("d",line);
 
+      var bottom = d3.axisBottom(x_axis)
+      .tickSize(-width);
+      
       svg.append("g")
       .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x_axis))
+      .call(bottom)
       .attr("class", "x_axis")
       .selectAll("text")
       .attr("x","0.9em")
       .attr("y","1em")
-      .attr("dy","0.35em")
+      .attr("dy","0.35em");
 
       svg.append("g")
       .attr("transform", "translate(50,0)")
