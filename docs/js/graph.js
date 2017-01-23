@@ -111,7 +111,10 @@ $(document).ready(function()
 
       var bottom = d3.axisBottom(x_axis)
       .tickSize(-width);
-      
+
+      var left = d3.axisLeft(y_axis)
+      .tickSize(-height);
+
       svg.append("g")
       .attr("transform", "translate(0," + height + ")")
       .call(bottom)
@@ -123,7 +126,7 @@ $(document).ready(function()
 
       svg.append("g")
       .attr("transform", "translate(50,0)")
-      .call(d3.axisLeft(y_axis))
+      .call(left)
       .attr("class", "y_axis");
 
       svg.append("text")
