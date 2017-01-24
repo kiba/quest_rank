@@ -78,6 +78,13 @@ $(document).ready(function()
       return months;
     }
 
+    function getBottom(x_axis)
+    {
+      return d3.axisBottom(x_axis)
+     .tickSize(-width)
+     .tickSizeOuter(0);
+    }
+
     function last_twelve_months(data,draw)
     {
 
@@ -109,9 +116,7 @@ $(document).ready(function()
       .attr("class","line")
       .attr("d",line);
 
-      var bottom = d3.axisBottom(x_axis)
-      .tickSize(-width)
-      .tickSizeOuter(0);
+      var bottom = getBottom(x_axis);
 
       var left = d3.axisLeft(y_axis)
       .tickSize(-(height + 100))
