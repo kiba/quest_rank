@@ -85,6 +85,14 @@ $(document).ready(function()
      .tickSizeOuter(0);
     }
 
+    function getLeft(y_axis)
+    {
+      return d3.axisLeft(y_axis)
+      .tickSize(-(height + 100))
+      .tickSizeOuter(0);
+    }
+
+
     function last_twelve_months(data,draw)
     {
 
@@ -118,9 +126,7 @@ $(document).ready(function()
 
       var bottom = getBottom(x_axis);
 
-      var left = d3.axisLeft(y_axis)
-      .tickSize(-(height + 100))
-      .tickSizeOuter(0);
+      var left = getLeft(y_axis);
 
       svg.append("g")
       .attr("transform", "translate(0," + height + ")")
