@@ -110,10 +110,12 @@ $(document).ready(function()
       .attr("d",line);
 
       var bottom = d3.axisBottom(x_axis)
-      .tickSize(-width);
+      .tickSize(-width)
+      .tickSizeOuter(0);
 
       var left = d3.axisLeft(y_axis)
-      .tickSize(-(height + 100));
+      .tickSize(-(height + 100))
+      .tickSizeOuter(0);
 
       svg.append("g")
       .attr("transform", "translate(0," + height + ")")
