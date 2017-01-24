@@ -7,4 +7,6 @@ class Crawl
     @agent = Mechanize.new()
     @agent.history_added = Proc.new {sleep 3}
   end
+  def target_range
+  end
 end
