@@ -9,5 +9,9 @@ class Crawl
     @files = Dir["cache/threads/*.html"]
   end
   def target_range
+    start = @files.size
+    if start == 0
+      start = 1
+    end
   end
 end
