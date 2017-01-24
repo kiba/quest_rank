@@ -159,6 +159,8 @@ $(document).ready(function()
 
       svg = d3.select("#svg").transition();
 
+      var bottom = getBottom(x_axis);
+    
       svg.select(".line")
       .duration(500)
       .attr("d",line(data));
@@ -170,7 +172,7 @@ $(document).ready(function()
 
       svg.select(".x_axis")
       .duration(500)
-      .call(d3.axisBottom(x_axis));
+      .call(bottom);
 
       svg.select(".y_axis")
       .duration(500)
