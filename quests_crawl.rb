@@ -1,4 +1,5 @@
 require "optparse"
+load "crawl.rb"
 url = "https://forums.sufficientvelocity.com/threads/marked-for-death-a-rational-naruto-quest.24481/"
 
 options = {}
@@ -15,7 +16,7 @@ OptionParser.new do |opts|
 end.parse!
 
 crawl = Crawl.new()
-crawl.url = url
+crawl.set_url(url)
 if options[:page] == nil
   crawl.auto_download()
 else
