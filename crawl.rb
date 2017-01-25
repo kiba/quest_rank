@@ -5,11 +5,16 @@ class Crawl
     @agent.history_added = Proc.new {sleep 3}
     @files = Dir["cache/*.html"]
     @url = ""
+    @target_dir = ""
   end
   def set_url url
     @url = url
   end
+  def set_dir dir
+    @target_dir = dir
+  end
   def target_range
+    print "beep"
     start = @files.size
     if start == 0
       start = 1
