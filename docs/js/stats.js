@@ -15,12 +15,12 @@ function stats(error,data)
   if (error) { alert(error);}
 
   var thirty = Math.trunc(average(data,30));
-  $("ul").append("<li>Last Thirty Days Average: " + thirty + " replies.");
+  $("ul").append("<li>Last Thirty Days Average: " + thirty + " replies per day.");
 
   if (data.length >= 365)
   {
     var year_on_year = Math.trunc(average(data,365));
-    $("ul").append("<li>Year on Year Average: " + year_on_year + " replies.");
+    $("ul").append("<li>Year on Year Average: " + year_on_year + " replies per day.");
   }
   var lifetime = Math.trunc(average(data,data.length));
 
