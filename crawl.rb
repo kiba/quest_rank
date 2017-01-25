@@ -7,6 +7,14 @@ class Crawl
     @url = ""
     @target_dir = ""
   end
+  def get_path
+    if @target_dir.empty?
+      path = "cache/"
+    else
+      path = "cache/" + @target_dir + "/"
+    end
+    return path
+  end
   def set_url url
     @url = url
   end
