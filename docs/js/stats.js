@@ -23,6 +23,6 @@ function stats(error,data)
     $("ul").append("<li>Year on Year Average: " + year_on_year + " replies per day.");
   }
   var lifetime = Math.trunc(average(data,data.length));
-
+  $("ul").append("<li>Lifetime Average: " + lifetime + " replies per day.");
 
 }
