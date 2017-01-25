@@ -32,6 +32,10 @@ class Crawl
   def download n
     page = @agent.get(@url + "page-#{n}")
     puts "page #{n} saved."
-    page.save!("cache/#{n}.html")
+    if @target_dir.empty?
+      page.save!("cache/#{n}.html")
+    else
+      page.save!("cache/#{@target_dir}/#{n}.html")
+    end
   end
 end
