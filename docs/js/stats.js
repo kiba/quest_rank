@@ -14,5 +14,10 @@ function stats(error,data)
 {
   if (error) { alert(error);}
   var thirty = Math.trunc(average(data,30));
+  if (data.length >= 365)
+  {
+    var year_on_year = Math.trunc(average(data,365));
+  }
+  var lifetime = Math.trunc(average(data,data.length));
   $("ul").append("<li>Last Thirty Days Average: " + thirty + " replies.");
 }
