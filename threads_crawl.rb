@@ -1,6 +1,8 @@
 require "optparse"
+load "crawl.rb"
 
-URL = "https://forums.sufficientvelocity.com/forums/quests.29/"
+url = "https://forums.sufficientvelocity.com/forums/quests.29/"
 
 crawl = Crawl.new()
+crawl.set_url(url)
 crawl.auto_download()
