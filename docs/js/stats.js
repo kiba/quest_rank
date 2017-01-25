@@ -14,6 +14,10 @@ function stats(error,data)
 {
   if (error) { alert(error);}
 
+  var seven = Math.trunc(average(data,7));
+  $("ul").append("<li>Last Seven Days Average : " + seven + " replies per day.");
+
+
   var thirty = Math.trunc(average(data,30));
   $("ul").append("<li>Last Thirty Days Average: " + thirty + " replies per day.");
 
