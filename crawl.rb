@@ -6,6 +6,9 @@ class Crawl
     @files = Dir["cache/*.html"]
     @url = ""
   end
+  def set_url url
+    @url = url
+  end
   def target_range
     start = @files.size
     if start == 0
