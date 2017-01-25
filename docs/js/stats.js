@@ -1,17 +1,17 @@
-function thirty_days_average (data)
+function average (data, length)
 {
   var count = 0;
-  for(i=0;i < 30;i++)
+  for(i=0;i < length;i++)
   {
-    var d = data[data.length - 30 + i];
+    var d = data[data.length - length + i];
     count += d[1];
   }
-  var average = count / 30;
+  var average = count / length;
   return average;
 }
 
 function stats(error,data)
 {
   if (error) { alert(error);}
-  console.log(thirty_days_average(data));
+  console.log(average(data,30));
 }
