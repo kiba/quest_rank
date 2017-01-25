@@ -15,7 +15,7 @@ function stats(error,data)
   if (error) { alert(error);}
 
   var today = data[data.length - 1][1]
-  $("ul").append("<li> Today's Count: " + today + " replies</li>")
+  $("ul").append("<li> Today's Count: " + today + " replies.</li>")
 
   var seven = Math.trunc(average(data,7));
   $("ul").append("<li>Last Seven Days Average : " + seven + " replies per day.</li>");
