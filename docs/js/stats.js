@@ -13,5 +13,6 @@ function average (data, length)
 function stats(error,data)
 {
   if (error) { alert(error);}
-  console.log(average(data,30));
+  var thirty = Math.trunc(average(data,30));
+  $("ul").append("<li>Last Thirty Days Average: " + thirty + " replies.");
 }
