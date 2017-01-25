@@ -3,7 +3,6 @@ class Crawl
   def initialize
     @agent = Mechanize.new()
     @agent.history_added = Proc.new {sleep 3}
-    @files = Dir["cache/*.html"]
     @url = ""
     @target_dir = ""
   end
@@ -22,8 +21,8 @@ class Crawl
     @target_dir = dir
   end
   def target_range
-    print "beep"
-    start = @files.size
+    files = Dir[get_path() + "*.html"]
+    start = files.size
     if start == 0
       start = 1
     end
@@ -40,10 +39,7 @@ class Crawl
   def download n
     page = @agent.get(@url + "page-#{n}")
     puts "page #{n} saved."
-    if @target_dir.empty?
-      page.save!("cache/#{n}.html")
-    else
-      page.save!("cache/#{@target_dir}/#{n}.html")
-    end
+    page.save!(get_path() + "#{n}.html")
+
   end
 end
