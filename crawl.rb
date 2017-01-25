@@ -4,13 +4,14 @@ class Crawl
     @agent = Mechanize.new()
     @agent.history_added = Proc.new {sleep 3}
     @files = Dir["cache/*.html"]
+    @url = ""
   end
   def target_range
     start = @files.size
     if start == 0
       start = 1
     end
-    page = @agent.get(URL + "page-#{start}")
+    page = @agent.get(@url + "page-#{start}")
     last = page.css("div.PageNav").first["data-last"].to_i
     (start..last).to_a.each
   end
@@ -21,7 +22,7 @@ class Crawl
     end
   end
   def download n
-    page = @agent.get(URL + "page-#{n}")
+    page = @agent.get(@url + "page-#{n}")
     puts "page #{n} saved."
     page.save!("cache/#{n}.html")
   end
