@@ -1,4 +1,3 @@
-require "mechanize"
 require "optparse"
 URL = "https://forums.sufficientvelocity.com/threads/marked-for-death-a-rational-naruto-quest.24481/"
 

@@ -1,3 +1,4 @@
+require "mechanize"
 class Crawl
   def initialize
     @agent = Mechanize.new()
