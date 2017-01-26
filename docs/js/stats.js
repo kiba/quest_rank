@@ -36,22 +36,23 @@ function stats(error,data)
     var count = records[i][1];
     $("ul").append("<li> On " + date + ": " + count + " replies.</li>");
   }
+  var ul = "ul#stats";
   var today = data[data.length - 1][1]
-  $("ul").append("<li> Today's Count: " + today + " replies.</li>")
+  $(ul).append("<li> Today's Count: " + today + " replies.</li>")
 
   var seven = Math.trunc(average(data,7));
-  $("ul").append("<li>Last Seven Days Average : " + seven + " replies per day.</li>");
+  $(ul).append("<li>Last Seven Days Average : " + seven + " replies per day.</li>");
 
 
   var thirty = Math.trunc(average(data,30));
-  $("ul").append("<li>Last Thirty Days Average: " + thirty + " replies per day.</li>");
+  $(ul).append("<li>Last Thirty Days Average: " + thirty + " replies per day.</li>");
 
   if (data.length >= 365)
   {
     var year_on_year = Math.trunc(average(data,365));
-    $("ul").append("<li>Year on Year Average: " + year_on_year + " replies per day.</li>");
+    $(ul).append("<li>Year on Year Average: " + year_on_year + " replies per day.</li>");
   }
   var lifetime = Math.trunc(average(data,data.length));
-  $("ul").append("<li>Lifetime Average: " + lifetime + " replies per day.</li>");
+  $(ul).append("<li>Lifetime Average: " + lifetime + " replies per day.</li>");
 
 }
