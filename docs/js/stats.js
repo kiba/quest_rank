@@ -10,6 +10,21 @@ function average (data, length)
   return average;
 }
 
+function record_days (data)
+{
+  n = 0
+  var results = []
+  for (var i = 0, ; i < data.length, i)
+  {
+    if (data[i][1] > n)
+    {
+      n = data[i][1];
+      results.push(data[i]);
+    }
+  }
+  return results;
+}
+
 function stats(error,data)
 {
   if (error) { alert(error);}
