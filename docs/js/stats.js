@@ -29,6 +29,8 @@ function stats(error,data)
 {
   if (error) { alert(error);}
 
+  var records = record_days(data);
+
   var today = data[data.length - 1][1]
   $("ul").append("<li> Today's Count: " + today + " replies.</li>")
 
