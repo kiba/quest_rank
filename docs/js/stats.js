@@ -12,8 +12,8 @@ function average (data, length)
 
 function record_days (data)
 {
-  n = 0
-  var results = []
+  var n = 0;
+  var results = [];
   for (var i = 0, ; i < data.length, i)
   {
     if (data[i][1] > n)
