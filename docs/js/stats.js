@@ -28,15 +28,15 @@ function record_days (data)
 function stats(error,data)
 {
   if (error) { alert(error);}
-
+  var ul = "ul#records";
   var records = record_days(data);
   for (var i = 0; i < records.length; i++)
   {
     var date = records[i][0];
     var count = records[i][1];
-    $("ul").append("<li> On " + date + ": " + count + " replies.</li>");
+    $(ul).append("<li> On " + date + ": " + count + " replies.</li>");
   }
-  var ul = "ul#stats";
+  ul = "ul#stats";
   var today = data[data.length - 1][1]
   $(ul).append("<li> Today's Count: " + today + " replies.</li>")
 
