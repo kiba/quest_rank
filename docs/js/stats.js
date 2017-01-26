@@ -1,7 +1,7 @@
 function average (data, length)
 {
   var count = 0;
-  for(i=0;i < length;i++)
+  for(var i=0;i < length;i++)
   {
     var d = data[data.length - length + i];
     count += d[1];
