@@ -18,6 +18,11 @@ files.each do |f|
     if t["class"].match("sticky").nil? == true
       url = t.search("a")[1].attributes["href"].value.split("threads/").last
       id = t.values[0].split("thread-").last
+      hash = {
+        :id => id,
+        :url => url
+      }
+      results.push(hash)
     end
   end
 end
