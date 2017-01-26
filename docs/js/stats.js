@@ -14,7 +14,7 @@ function record_days (data)
 {
   var n = 0;
   var results = [];
-  for (var i = 0, ; i < data.length, i)
+  for (var i = 0; i < data.length; i++)
   {
     if (data[i][1] > n)
     {
