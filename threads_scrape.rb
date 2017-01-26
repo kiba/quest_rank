@@ -9,6 +9,8 @@ files = files.sort_by {|f|
   f.split("cache/threads/")[1].split(".html").first.to_i
 }
 
+results = []
+
 files.each do |f|
   content = Nokogiri::HTML(File.open(f))
   threads = content.search("li.discussionListItem")
