@@ -13,9 +13,12 @@ threads.each do |t|
     :description => "",
     :tags => t["tag"]
   }
-  dir = pathway + t["id"]
+  dir = pathway + t["id"] + "/"
   unless File.exist?(dir)
-    puts "Beep"
+    Dir.mkdir(dir)
+    File.open(dir + "quest.json","w") do |f|
+      f.write(JSON.pretty_generate(hash))
+    end
     exit
   else
     "directory already exists."
