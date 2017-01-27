@@ -19,7 +19,6 @@ files.each do |f|
   threads = content.search("li.discussionListItem")
   threads.each do |t|
     if t["class"].match("sticky").nil? == true
-      url = t.search("a").search(".PreviewTooltip").first["href"].split("threads/").last
       id = t.values[0].split("thread-").last
       author = t.values.last
       create = t.search(".startDate").search(".DateTime").children.text
@@ -27,7 +26,6 @@ files.each do |f|
       # update = t.search(".lastPost").search(".dateTime")[0].children[0].attributes["data-datestring"].value
       hash = {
         :id => id,
-        :url => url,
         :author => author,
         :create => create,
         :update => update
