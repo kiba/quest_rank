@@ -6,6 +6,7 @@ quests = Dir.glob("docs/data/quests/*")
 quests.each do |quest|
   id = quest.split("/").last
   download = "quests/" + id
+  puts "Crawling thread: " + id
   url = "https://forums.sufficientvelocity.com/threads/" + id + "/"
   crawl = Crawl.new()
   crawl.set_url(url)
