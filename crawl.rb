@@ -27,8 +27,13 @@ class Crawl
       start = 1
     end
     page = @agent.get(@url + "page-#{start}")
-    last = page.css("div.PageNav").first["data-last"].to_i
-    (start..last).to_a.each
+    css = page.css("div.PageNav")
+    unless css.empty?
+      last = css.first["data-last"].to_i
+      return (start..last).to_a.each
+    else
+      return [1]
+    end
   end
   def auto_download
     range = target_range()
