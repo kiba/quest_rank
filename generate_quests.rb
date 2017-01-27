@@ -13,4 +13,11 @@ threads.each do |t|
     :description => "",
     :tags => t["tag"]
   }
+  file = directory + t["id"]
+  unless File.exist?(file)
+    puts "Beep"
+    exit
+  else
+    "directory already exists."
+  end
 end
