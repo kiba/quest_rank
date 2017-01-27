@@ -13,6 +13,7 @@ t = threads[0]
 hash = {
   :title => threads[0].title,
   :url => "https://forums.sufficientvelocity.com/threads/" + threads[0].id,
+  :authors => [threads[0].author],
   :description => "",
-  :authors => [threads[0].author]
+  :tags => ""
 }
