@@ -20,12 +20,14 @@ files.each do |f|
   threads.each do |t|
     if t["class"].match("sticky").nil? == true
       id = t.values[0].split("thread-").last
+      title =  t.search("a").search("a.PreviewTooltip").children.text
       author = t.values.last
       create = t.search(".startDate").search(".DateTime").children.text
       update = t.search(".lastPost").search(".dateTime").search(".DateTime").text
       # update = t.search(".lastPost").search(".dateTime")[0].children[0].attributes["data-datestring"].value
       hash = {
         :id => id,
+        :title => title,
         :author => author,
         :create => create,
         :update => update
