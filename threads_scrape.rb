@@ -11,16 +11,20 @@ files = files.sort_by {|f|
 
 results = []
 
+page = 0
 files.each do |f|
+  page += 1
+  puts page
   content = Nokogiri::HTML(File.open(f))
   threads = content.search("li.discussionListItem")
   threads.each do |t|
     if t["class"].match("sticky").nil? == true
-      url = t.search("a")[1].attributes["href"].value.split("threads/").last
+      url = t.search("a").search(".PreviewTooltip").first["href"].split("threads/").last
       id = t.values[0].split("thread-").last
       author = t.values.last
       create = t.search(".startDate").search(".DateTime").children.text
-      update = t.search(".lastPost").search(".dateTime")[0].children[0].attributes["data-datestring"].value
+      update = t.search(".lastPost").search(".dateTime").search(".DateTime").text
+      # update = t.search(".lastPost").search(".dateTime")[0].children[0].attributes["data-datestring"].value
       hash = {
         :id => id,
         :url => url,
