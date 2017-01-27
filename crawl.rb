@@ -2,7 +2,7 @@ require "mechanize"
 class Crawl
   def initialize
     @agent = Mechanize.new()
-    @agent.history_added = Proc.new {sleep 3}
+    @agent.history_added = Proc.new {sleep 6}
     @url = ""
     @target_dir = ""
   end
