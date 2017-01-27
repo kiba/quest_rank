@@ -19,10 +19,14 @@ files.each do |f|
       url = t.search("a")[1].attributes["href"].value.split("threads/").last
       id = t.values[0].split("thread-").last
       author = t.values.last
+      create = t.search(".startDate").search(".DateTime").children.text
+      update = t.search(".lastPost").search(".dateTime")[0].children[0].attributes["data-datestring"].value
       hash = {
         :id => id,
         :url => url,
-        :author => author
+        :author => author,
+        :create => create,
+        :update => update
       }
       byebug
       results.push(hash)
