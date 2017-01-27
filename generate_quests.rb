@@ -11,6 +11,9 @@ threads = JSON.parse(File.read("docs/data/threads.json"))
 
 t = threads[0]
 hash = {
+  :title => "",
   :url => "https://forums.sufficientvelocity.com/threads/" + threads[0],
-  :authors => [threads[0].author]
+  :description => "",
+  :authors => [threads[0].author],
+
 }
