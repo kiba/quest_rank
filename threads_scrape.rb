@@ -28,8 +28,12 @@ files.each do |f|
         :create => create,
         :update => update
       }
-      byebug
       results.push(hash)
     end
   end
+end
+
+data = JSON.pretty_generate(results)
+File.open("docs/data/threads.json","w") do |f|
+  f.write(data)
 end
