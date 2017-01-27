@@ -1,7 +1,7 @@
 require "json"
 require "byebug"
 
-directory = "docs/data/quests/"
+pathway = "docs/data/quests/"
 exclude = []
 threads = JSON.parse(File.read("docs/data/threads.json"))
 
@@ -13,8 +13,8 @@ threads.each do |t|
     :description => "",
     :tags => t["tag"]
   }
-  file = directory + t["id"]
-  unless File.exist?(file)
+  dir = pathway + t["id"]
+  unless File.exist?(dir)
     puts "Beep"
     exit
   else
