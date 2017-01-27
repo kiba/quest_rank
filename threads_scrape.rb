@@ -25,12 +25,17 @@ files.each do |f|
       create = t.search(".startDate").search(".DateTime").children.text
       update = t.search(".lastPost").search(".dateTime").search(".DateTime").text
       # update = t.search(".lastPost").search(".dateTime")[0].children[0].attributes["data-datestring"].value
+      tags = []
+      t.search("a.tag").each do |tag|
+        tags.push(tag.values[0].split("/")[1])
+      end
       hash = {
         :id => id,
         :title => title,
         :author => author,
         :create => create,
-        :update => update
+        :update => update,
+        :tags => tags
       }
       results.push(hash)
     end
