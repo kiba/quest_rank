@@ -19,7 +19,6 @@ threads.each do |t|
     File.open(dir + "quest.json","w") do |f|
       f.write(JSON.pretty_generate(hash))
     end
-    exit
   else
     "directory already exists."
   end
