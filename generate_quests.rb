@@ -1,3 +1,4 @@
 require "json"
 require "byebug"
-quests = Dir.glob("docs/data/quests/*")
+
+generated = Dir.glob("docs/data/quests/*")
