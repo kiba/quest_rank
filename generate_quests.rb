@@ -8,12 +8,12 @@ directories.each do |d|
 end
 threads = JSON.parse(File.read("docs/data/threads.json"))
 
-
-t = threads[0]
-hash = {
-  :title => threads[0].title,
-  :url => "https://forums.sufficientvelocity.com/threads/" + threads[0].id,
-  :authors => [threads[0].author],
-  :description => "",
-  :tags => ""
-}
+threads.each do |t|
+  hash = {
+    :title => t["title"],
+    :url => "https://forums.sufficientvelocity.com/threads/" + t["id"],
+    :authors => [t["author"]],
+    :description => "",
+    :tags => t["tag"]
+  }
+end
