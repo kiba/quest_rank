@@ -3,9 +3,8 @@ url = "https://forums.sufficientvelocity.com/threads/marked-for-death-a-rational
 
 quests = Dir.glob("docs/data/quests/*")
 
-file = File.open("progress.txt","r")
+file = File.open("progress.txt","rw")
 progress = file.read[0].to_i
-file.close()
 
 progress.times do
   quests.shift()
@@ -21,4 +20,5 @@ quests.each do |quest|
   crawl.set_dir(download)
   crawl.auto_download()
   progress += 1
+  file.write(progress)
 end
