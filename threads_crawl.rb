@@ -1,4 +1,3 @@
-require "optparse"
 load "crawl.rb"
 
 file = File.open("progress.txt","r")
