@@ -3,7 +3,7 @@ url = "https://forums.sufficientvelocity.com/threads/marked-for-death-a-rational
 
 quests = Dir.glob("docs/data/quests/*")
 
-file = File.open("progress.txt","rw")
+file = File.open("progress.txt","r+")
 progress = file.read[0].to_i
 
 progress.times do
