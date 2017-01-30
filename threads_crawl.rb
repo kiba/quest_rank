@@ -1,6 +1,8 @@
 require "optparse"
 load "crawl.rb"
 
+file = File.open("progress.txt","r")
+
 url = "https://forums.sufficientvelocity.com/forums/quests.29/"
 directory = "threads"
 
