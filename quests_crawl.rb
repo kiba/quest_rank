@@ -7,6 +7,10 @@ file = File.open("progress.txt","r")
 progress = file.read[0].to_i
 file.close()
 
+progress.times do
+  quests.shift()
+end
+
 quests.each do |quest|
   id = quest.split("/").last
   download = "quests/" + id
@@ -16,4 +20,5 @@ quests.each do |quest|
   crawl.set_url(url)
   crawl.set_dir(download)
   crawl.auto_download()
+  progress += 1
 end
