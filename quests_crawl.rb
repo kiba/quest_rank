@@ -1,9 +1,9 @@
 load "crawl.rb"
-
+require"byebug"
 quests = Dir.glob("docs/data/quests/*")
 
 file = File.open("progress.txt","r")
-progress = file.read[0].to_i
+progress = file.readline().to_i
 file.close()
 
 progress.times do
