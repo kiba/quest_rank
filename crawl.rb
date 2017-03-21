@@ -39,11 +39,19 @@ class Crawl
   def auto_download
     range = target_range()
     range.each do |n|
+      times = 3
       download(n)
+      times -= 1
     end
   end
   def download n
-    page = @agent.get(@url + "page-#{n}")
+    times = 3
+    begin
+      page = @agent.get(@url + "page-#{n}")
+    rescue
+      times -= 1
+      retry if times > 0
+    end
     puts "page #{n} saved."
     page.save!(get_path() + "#{n}.html")
 
