@@ -1,4 +1,4 @@
-load "../crawl.rb"
+load "lib/crawl.rb"
 require"byebug"
 
 if ARGV.size > 0
