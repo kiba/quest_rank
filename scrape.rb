@@ -2,7 +2,7 @@ require "json"
 require "nokogiri"
 require "byebug"
 
-files = Dir["cache/*.html"]
+files = Dir["cache/quests/24481/*.html"]
 
 posts = []
 
