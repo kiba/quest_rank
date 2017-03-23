@@ -1,14 +1,21 @@
 load "crawl.rb"
 require"byebug"
-quests = Dir.glob("docs/data/quests/*")
 
-file = File.open("progress.txt","r")
-progress = file.readline().to_i
-file.close()
+if ARGV.size > 0
+  quests = ["docs/data/quests/" + ARGV[0]]
+  progress = 0
+else
+  quests = Dir.glob("docs/data/quests/*")
+  file = File.open("progress.txt","r")
+  progress = file.readline().to_i
+  file.close()
+end
 
 progress.times do
   quests.shift()
 end
+
+puts quests
 
 crawl = Crawl.new()
 
