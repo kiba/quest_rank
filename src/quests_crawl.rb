@@ -1,11 +1,11 @@
-load "crawl.rb"
+load "../crawl.rb"
 require"byebug"
 
 if ARGV.size > 0
-  quests = ["docs/data/quests/" + ARGV[0]]
+  quests = ["../docs/data/quests/" + ARGV[0]]
   progress = 0
 else
-  quests = Dir.glob("docs/data/quests/*")
+  quests = Dir.glob("../docs/data/quests/*")
   file = File.open("progress.txt","r")
   progress = file.readline().to_i
   file.close()
@@ -28,7 +28,7 @@ quests.each do |quest|
   crawl.set_dir(download)
   crawl.auto_download()
   progress += 1
-  File.open("progress.txt","w") do |f|
+  File.open("../progress.txt","w") do |f|
     f.write(progress)
   end
 end

@@ -2,7 +2,7 @@ require "json"
 require "nokogiri"
 require "byebug"
 
-files = Dir["cache/quests/24481/*.html"]
+files = Dir["../cache/quests/24481/*.html"]
 
 posts = []
 
@@ -20,7 +20,7 @@ end
 count = 0
 
 # Integer sort.
-files = files.sort_by {|f| f.split("cache/quests/24481/")[1].split(".html").first.to_i}
+files = files.sort_by {|f| f.split("../cache/quests/24481/")[1].split(".html").first.to_i}
 
 files.each do |f|
   content = Nokogiri::HTML(File.open(f))
@@ -45,6 +45,6 @@ end
 puts "There are " + count.to_s + " posts."
 results = JSON.pretty_generate(posts)
 
-File.open("docs/data/quests/24481/data.json","w") do |f|
+File.open("../docs/data/quests/24481/data.json","w") do |f|
   f.write(posts)
 end

@@ -1,7 +1,7 @@
 require "json"
 require "byebug"
 
-file = File.read("docs/data/quests/24481/data.json")
+file = File.read("../docs/data/quests/24481/data.json")
 
 data = JSON.parse(file)
 
@@ -36,6 +36,6 @@ puts records
 
 posting_frequency = dates.to_a.to_json
 
-File.open("docs/data/quests/24481/date-posts-frequency.json","w") do |f|
+File.open("../docs/data/quests/24481/date-posts-frequency.json","w") do |f|
   f.write(posting_frequency)
 end
