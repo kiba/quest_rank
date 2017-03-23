@@ -24,7 +24,6 @@ files.each do |f|
       author = t.values.last
       create = t.search(".startDate").search(".DateTime").children.text
       update = t.search(".lastPost").search(".dateTime").search(".DateTime").text
-      # update = t.search(".lastPost").search(".dateTime")[0].children[0].attributes["data-datestring"].value
       tags = []
       t.search("a.tag").each do |tag|
         tags.push(tag.values[0].split("/")[1])
