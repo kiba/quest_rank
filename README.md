@@ -3,3 +3,4 @@
 # TODO
 
 * Download a specific thread.
+* Improve performance.
