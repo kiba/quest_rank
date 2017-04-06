@@ -1,6 +1,12 @@
 require "json"
 require "byebug"
 
+target = ARGV[0]
+
+if target.empty?
+  target = 24481
+end
+
 file = File.read("./docs/data/quests/24481/data.json")
 
 data = JSON.parse(file)
