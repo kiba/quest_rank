@@ -2,6 +2,12 @@ require "json"
 require "nokogiri"
 require "byebug"
 
+target = ARGV[0]
+
+if target.empty?
+  target = 24481
+end
+
 files = Dir["./cache/quests/24481/*.html"]
 posts = []
 
