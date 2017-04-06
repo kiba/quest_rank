@@ -3,4 +3,4 @@
 # TODO
 
 * Download a specific thread.
-* Improve performance.
+* Improve performance of analyze.rb.
