@@ -1,14 +1,6 @@
 require "json"
 require "byebug"
 
-start = Time.now()
-
-def eclipsed start, message
-  puts message
-  stop = Time.now()
-  puts "Time has passed: " + ((stop - start) / 1000).to_s
-end
-
 target = ARGV[0]
 
 if target.nil?
