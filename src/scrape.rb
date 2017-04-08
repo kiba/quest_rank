@@ -4,7 +4,7 @@ require "byebug"
 
 target = ARGV[0]
 
-if target.empty?
+if target.nil?
   target = 24481
 end
 
