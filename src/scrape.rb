@@ -30,30 +30,33 @@ def find_date m
   return date
 end
 
-files = get_files(target)
-# Integer sort.
-files = files.sort_by {|f| f.split("./cache/quests/#{target}/")[1].split(".html").first.to_i}
+def get_posts target
+  files = get_files(target)
+  # Integer sort.
+  files = files.sort_by {|f| f.split("./cache/quests/#{target}/")[1].split(".html").first.to_i}
 
-posts = []
-count = 0
-files.each do |f|
-  content = Nokogiri::HTML(File.open(f))
-  replies = content.search("li.message")
-  count += replies.size
-  if replies.size != 25
-    puts "Not standard number of replies at... " + f + " with " + replies.size.to_s
+  posts = []
+  count = 0
+  files.each do |f|
+    content = Nokogiri::HTML(File.open(f))
+    replies = content.search("li.message")
+    count += replies.size
+    if replies.size != 25
+      puts "Not standard number of replies at... " + f + " with " + replies.size.to_s
+    end
+    replies.each do |m|
+      id = m["id"]
+      author = m["data-author"]
+      date = find_date(m)
+      hash = {
+        :id => id,
+        :author => author,
+        :date => date
+      }
+      posts.push(hash.to_json)
+    end
   end
-  replies.each do |m|
-    id = m["id"]
-    author = m["data-author"]
-    date = find_date(m)
-    hash = {
-      :id => id,
-      :author => author,
-      :date => date
-    }
-    posts.push(hash.to_json)
-  end
+  return posts
 end
 
 puts "There are " + count.to_s + " posts."
