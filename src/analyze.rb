@@ -1,10 +1,17 @@
 require "json"
 require "byebug"
 
-target = ARGV[0]
+# Download a specific target.
+argument = ARGV[0]
 
-if target.nil?
-  target = 24481
+if !argument.nil?
+  targets = [ARGV[0].to_i]
+else
+  targets = []
+  lists = Dir["./docs/quests/*"]
+  lists.each do |e|
+    targets.push(e.split("/").last.split(".").first.to_i)
+  end
 end
 
 file = File.read("./docs/data/quests/#{target}/data.json")
