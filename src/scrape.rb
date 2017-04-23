@@ -8,8 +8,9 @@ if target.nil?
   target = 24481
 end
 
-files = Dir["./cache/quests/#{target}/*.html"]
-posts = []
+def get_files target
+  files = Dir["./cache/quests/#{target}/*.html"]
+end
 
 def find_date m
   date = m.search("div.messageMeta span.DateTime").children.text
@@ -22,11 +23,12 @@ def find_date m
   return date
 end
 
-count = 0
-
+files = get_files(target)
 # Integer sort.
 files = files.sort_by {|f| f.split("./cache/quests/#{target}/")[1].split(".html").first.to_i}
 
+posts = []
+count = 0
 files.each do |f|
   content = Nokogiri::HTML(File.open(f))
   replies = content.search("li.message")
