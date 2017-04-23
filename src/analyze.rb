@@ -34,18 +34,18 @@ def get_dates target
   return dates
 end
 
-biggest = {:date => nil, :count => 0}
-records = []
-
-dates.to_a.each do |d|
-  if d[1] > biggest[:count]
-    biggest[:date] = d[0]
-    biggest[:count] = d[1]
-    records.push({:date => d[0], :count => d[1]})
+def biggest dates
+  biggest = {:date => nil, :count => 0}
+  records = []
+  dates.to_a.each do |d|
+    if d[1] > biggest[:count]
+      biggest[:date] = d[0]
+      biggest[:count] = d[1]
+      records.push({:date => d[0], :count => d[1]})
+    end
   end
+  puts records
 end
-
-puts records
 
 posting_frequency = dates.to_a.to_json
 
