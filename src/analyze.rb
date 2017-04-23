@@ -14,23 +14,24 @@ else
   end
 end
 
-file = File.read("./docs/data/quests/#{target}/data.json")
+def get_dates target
+  file = File.read("./docs/data/quests/#{target}/data.json")
+  data = JSON.parse(file)
+  dates = {}
 
-data = JSON.parse(file)
-
-dates = {}
-
-data.each do |d|
-  d = JSON.parse(d)
-  key = d["date"]
-  if key == ""
-    raise "ERROR! Key is blank."
+  data.each do |d|
+    d = JSON.parse(d)
+    key = d["date"]
+    if key == ""
+      raise "ERROR! Key is blank."
+    end
+    if dates.key?(key) == true
+      dates[key] += 1
+    else
+      dates.merge!({key => 1})
+    end
   end
-  if dates.key?(key) == true
-    dates[key] += 1
-  else
-    dates.merge!({key => 1})
-  end
+  return dates
 end
 
 biggest = {:date => nil, :count => 0}
