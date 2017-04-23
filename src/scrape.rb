@@ -59,9 +59,9 @@ def get_posts target
   return posts
 end
 
-puts "There are " + count.to_s + " posts."
-results = JSON.pretty_generate(posts)
-
-File.open("./docs/data/quests/#{target}/data.json","w") do |f|
-  f.write(posts)
+targets.each do |t|
+  posts = get_posts(t)
+  File.open("./docs/data/quests/#{t}/data.json","w") do |f|
+    f.write(posts)
+  end
 end
