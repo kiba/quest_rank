@@ -50,9 +50,12 @@ end
 
 targets.each do |t|
   dates = get_dates(t)
+  puts " "
+  puts " Quest " + t.to_s
+  puts " " + ("=" * 10)
   biggest(dates)
   posting_frequency = dates.to_a.to_json
-  File.open("./docs/data/quests/#{target}/date-posts-frequency.json","w") do |f|
+  File.open("./docs/data/quests/#{t}/date-posts-frequency.json","w") do |f|
     f.write(posting_frequency)
     f.close()
   end
