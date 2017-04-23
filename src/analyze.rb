@@ -47,8 +47,13 @@ def biggest dates
   puts records
 end
 
-posting_frequency = dates.to_a.to_json
 
-File.open("./docs/data/quests/#{target}/date-posts-frequency.json","w") do |f|
-  f.write(posting_frequency)
+targets.each do |t|
+  dates = get_dates(t)
+  biggest(dates)
+  posting_frequency = dates.to_a.to_json
+  File.open("./docs/data/quests/#{target}/date-posts-frequency.json","w") do |f|
+    f.write(posting_frequency)
+    f.close()
+  end
 end
