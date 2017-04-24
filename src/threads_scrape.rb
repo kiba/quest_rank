@@ -12,7 +12,8 @@ end
 
 def get_result quest
   results = []
-  content = Nokogiri::HTML(File.open(f))
+  filename = "cache/quests/" + quest + ".html"
+  content = Nokogiri::HTML(File.open(filename))
   threads = content.search("li.discussionListItem")
   threads.each do |t|
     if t["class"].match("sticky").nil? == true
