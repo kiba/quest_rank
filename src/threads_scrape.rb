@@ -5,16 +5,17 @@ require "byebug"
 def get_quests
   quests = []
   Dir["cache/quests/*"].each do |path|
-    files.push(path.split("/").last)
+    quests.push(path.split("/").last)
   end
   quests
 end
 
-def get_result quest
+def get_metadata quest
   results = []
-  filename = "cache/quests/" + quest + ".html"
+  filename = "cache/quests/" + quest + "/1.html"
   content = Nokogiri::HTML(File.open(filename))
-  threads = content.search("li.discussionListItem")
+  byebug
+  document = content.search("li.discussionListItem")
   threads.each do |t|
     if t["class"].match("sticky").nil? == true
       id = t.values[0].split("thread-").last
@@ -34,9 +35,15 @@ def get_result quest
         :update => update,
         :tags => tags
       }
-      results.push(hash)
+      return hash
     end
   end
+end
+
+quests = get_quests()
+results = []
+quests.each do |q|
+  results.push(get_metadata(q))
 end
 
 data = JSON.pretty_generate(results)
