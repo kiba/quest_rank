@@ -2,12 +2,13 @@ require "json"
 require "nokogiri"
 require "byebug"
 
-files = Dir["cache/threads/*.html"]
-
-# Integer sort.
-files = files.sort_by {|f|
-  f.split("cache/threads/")[1].split(".html").first.to_i
-}
+def get_quests
+  quests = []
+  Dir["cache/quests/*"].each do |path|
+    files.push(path.split("/").last.to_i)
+  end
+  quests
+end
 
 results = []
 
