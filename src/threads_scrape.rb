@@ -5,17 +5,13 @@ require "byebug"
 def get_quests
   quests = []
   Dir["cache/quests/*"].each do |path|
-    files.push(path.split("/").last.to_i)
+    files.push(path.split("/").last)
   end
   quests
 end
 
 results = []
-
-page = 0
 files.each do |f|
-  page += 1
-  puts page
   content = Nokogiri::HTML(File.open(f))
   threads = content.search("li.discussionListItem")
   threads.each do |t|
