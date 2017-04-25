@@ -16,7 +16,7 @@ def get_metadata quest
   content = Nokogiri::HTML(File.open(filename))
   byebug
   title =  content.search("title").children.text.split("|").first.strip
-  author = t.values.last
+  author = content.search("li.message")[0]["data-author"]
   create = t.search(".startDate").search(".DateTime").children.text
   update = t.search(".lastPost").search(".dateTime").search(".DateTime").text
   tags = []
