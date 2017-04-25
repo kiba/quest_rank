@@ -28,7 +28,6 @@ def get_metadata quest
     :title => title,
     :author => author,
     :create => create,
-    :update => update,
     :tags => tags
   }
   return hash
