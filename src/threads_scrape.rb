@@ -19,16 +19,11 @@ def get_metadata quest
   message = content.search("li.message")[0]
   author = message["data-author"]
   create = message.search(".DateTime").children.last.text
-  tags = []
-  t.search("a.tag").each do |tag|
-    tags.push(tag.values[0].split("/")[1])
-  end
   hash = {
     :id => quest,
     :title => title,
     :author => author,
     :create => create,
-    :tags => tags
   }
   return hash
 end
