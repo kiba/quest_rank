@@ -15,8 +15,7 @@ def get_metadata quest
   filename = "cache/quests/" + quest + "/1.html"
   content = Nokogiri::HTML(File.open(filename))
   byebug
-  document = content.search("li.discussionListItem")
-  title =  t.search("a").search("a.PreviewTooltip").children.text
+  title =  content.search("title").children.text.split("|").first.strip
   author = t.values.last
   create = t.search(".startDate").search(".DateTime").children.text
   update = t.search(".lastPost").search(".dateTime").search(".DateTime").text
