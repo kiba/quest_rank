@@ -14,10 +14,10 @@ def get_metadata quest
   results = []
   filename = "cache/quests/" + quest + "/1.html"
   content = Nokogiri::HTML(File.open(filename))
-  byebug
   title =  content.search("title").children.text.split("|").first.strip
-  author = content.search("li.message")[0]["data-author"]
-  create = t.search(".startDate").search(".DateTime").children.text
+  message = content.search("li.message")[0]
+  author = message["data-author"]
+  create = message.search(".DateTime").children.last.text
   update = t.search(".lastPost").search(".dateTime").search(".DateTime").text
   tags = []
   t.search("a.tag").each do |tag|
