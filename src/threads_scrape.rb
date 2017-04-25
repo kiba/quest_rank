@@ -10,6 +10,7 @@ def get_quests
   quests
 end
 
+
 def get_metadata quest
   results = []
   filename = "cache/quests/" + quest + "/1.html"
@@ -18,7 +19,6 @@ def get_metadata quest
   message = content.search("li.message")[0]
   author = message["data-author"]
   create = message.search(".DateTime").children.last.text
-  update = t.search(".lastPost").search(".dateTime").search(".DateTime").text
   tags = []
   t.search("a.tag").each do |tag|
     tags.push(tag.values[0].split("/")[1])
