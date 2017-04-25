@@ -16,7 +16,6 @@ def get_metadata quest
   content = Nokogiri::HTML(File.open(filename))
   byebug
   document = content.search("li.discussionListItem")
-  id = t.values[0].split("thread-").las
   title =  t.search("a").search("a.PreviewTooltip").children.text
   author = t.values.last
   create = t.search(".startDate").search(".DateTime").children.text
@@ -26,7 +25,7 @@ def get_metadata quest
     tags.push(tag.values[0].split("/")[1])
   end
   hash = {
-    :id => id,
+    :id => quest,
     :title => title,
     :author => author,
     :create => create,
