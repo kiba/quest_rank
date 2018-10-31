@@ -36,11 +36,9 @@ def get_posts target
   files = files.sort_by {|f| f.split("./cache/quests/#{target}/")[1].split(".html").first.to_i}
 
   posts = []
-  count = 0
   files.each do |f|
     content = Nokogiri::HTML(File.open(f))
     replies = content.search("li.message")
-    count += replies.size
     if replies.size != 25
       puts "Not standard number of replies at... " + f + " with " + replies.size.to_s
     end
